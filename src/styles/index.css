@@ -3,6 +3,33 @@
 @tailwind utilities;
 
 @layer base {
+  :root, [data-theme="beige"] {
+    --c-bone:      245 241 232;
+    --c-cream:     237 230 214;
+    --c-sand:      221 210 188;
+    --c-taupe-100: 201 187 160;
+    --c-taupe-300: 168 152 120;
+    --c-taupe-500: 138 122 92;
+    --c-taupe-700: 92  79  58;
+  }
+  [data-theme="stone"] {
+    --c-bone:      236 234 229;
+    --c-cream:     221 217 210;
+    --c-sand:      197 193 183;
+    --c-taupe-100: 178 174 164;
+    --c-taupe-300: 138 135 124;
+    --c-taupe-500: 107 105 96;
+    --c-taupe-700: 70  68  60;
+  }
+  [data-theme="creme"] {
+    --c-bone:      250 244 228;
+    --c-cream:     242 232 203;
+    --c-sand:      229 213 172;
+    --c-taupe-100: 210 188 134;
+    --c-taupe-300: 184 159 100;
+    --c-taupe-500: 154 132 80;
+    --c-taupe-700: 113 95  56;
+  }
   html {
     scroll-behavior: smooth;
   }

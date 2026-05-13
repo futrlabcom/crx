@@ -94,7 +94,14 @@ export default function Projekte() {
                   className={`relative rounded-sm overflow-hidden mb-5 ${layout.aspect}`}
                   style={{ background: p.heroGradient }}
                 >
-                  <div className="absolute inset-0 grid-overlay-sm pointer-events-none" />
+                  {p.cardImage && (
+                    <img
+                      src={p.cardImage}
+                      alt={p.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  )}
                   <span className={`absolute top-5 left-5 z-10 px-3 py-1.5 text-[10px] uppercase tracking-widest backdrop-blur-sm ${
                     p.status === 'Fertig'
                       ? 'bg-taupe-500/95 text-white'

@@ -14,14 +14,23 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative min-h-[720px] h-screen bg-ink text-white overflow-hidden flex items-center">
+        <video
+          src="/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 75% 35%, rgba(168,152,120,0.18) 0%, transparent 55%), radial-gradient(ellipse at 20% 85%, rgba(201,187,160,0.08) 0%, transparent 60%)',
+              'linear-gradient(180deg, rgba(10,9,7,0.55) 0%, rgba(10,9,7,0.3) 35%, rgba(10,9,7,0.9) 100%)',
           }}
         />
-        <div className="absolute inset-0 grid-overlay pointer-events-none" />
+        <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
 
         <div className="container-crx px-8 lg:px-12 pb-24 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-20 items-end relative z-10 w-full">
           <div>

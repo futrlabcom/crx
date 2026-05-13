@@ -7,16 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Warm neutrals — bone, cream, sand
-        bone:   '#F5F1E8',
-        cream:  '#EDE6D6',
-        sand:   '#DDD2BC',
-        // Taupe — primary brand accent system
+        // Themeable neutrals — swap via [data-theme] on <html>
+        bone:   'rgb(var(--c-bone) / <alpha-value>)',
+        cream:  'rgb(var(--c-cream) / <alpha-value>)',
+        sand:   'rgb(var(--c-sand) / <alpha-value>)',
+        // Taupe — primary brand accent system (themeable)
         taupe: {
-          100: '#C9BBA0',
-          300: '#A89878',
-          500: '#8A7A5C',  // primary accent
-          700: '#5C4F3A',
+          100: 'rgb(var(--c-taupe-100) / <alpha-value>)',
+          300: 'rgb(var(--c-taupe-300) / <alpha-value>)',
+          500: 'rgb(var(--c-taupe-500) / <alpha-value>)',
+          700: 'rgb(var(--c-taupe-700) / <alpha-value>)',
         },
         // Warm grays for text
         stone: {

@@ -17,11 +17,18 @@ export default function ProjektDetail() {
         className="relative min-h-[720px] h-screen text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20"
         style={{ background: project.heroGradient }}
       >
+        {project.cardImage && (
+          <img
+            src={project.cardImage}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 70% 30%, rgba(245,241,232,0.15) 0%, transparent 50%), linear-gradient(180deg, transparent 30%, rgba(10,9,7,0.6) 100%)',
+              'linear-gradient(180deg, rgba(10,9,7,0.45) 0%, rgba(10,9,7,0.25) 35%, rgba(10,9,7,0.85) 100%)',
           }}
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none" />
@@ -129,10 +136,21 @@ export default function ProjektDetail() {
               <div
                 key={i}
                 className={`relative rounded-sm overflow-hidden ${spanClasses[i % 6]}`}
-                style={{ background: img.placeholder }}
+                style={{ background: project.heroGradient }}
               >
-                <div className="absolute inset-0 grid-overlay-sm pointer-events-none" />
-                <div className="absolute bottom-4 left-5 font-display text-sm text-white/85">
+                {img.src && (
+                  <img
+                    src={img.src}
+                    alt={img.caption}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
+                <div
+                  className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
+                  style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%)' }}
+                />
+                <div className="absolute bottom-4 left-5 font-display text-sm text-white/95">
                   {img.caption}
                 </div>
               </div>
@@ -216,7 +234,14 @@ export default function ProjektDetail() {
                 className="relative aspect-[4/3] rounded-sm overflow-hidden mb-4"
                 style={{ background: r.heroGradient }}
               >
-                <div className="absolute inset-0 grid-overlay-sm pointer-events-none" />
+                {r.cardImage && (
+                  <img
+                    src={r.cardImage}
+                    alt={r.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                )}
               </div>
               <div className="flex justify-between items-baseline mb-1">
                 <span className="text-[10px] tracking-widest uppercase text-stone-400">{r.location}</span>

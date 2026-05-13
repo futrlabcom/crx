@@ -7,8 +7,15 @@ export default function ProjectCard({ project, featured = false }) {
         className={`relative rounded-sm overflow-hidden mb-5 ${featured ? 'aspect-[5/4]' : 'aspect-[4/3]'}`}
         style={{ background: project.heroGradient }}
       >
-        <div className="absolute inset-0 grid-overlay-sm pointer-events-none" />
-        <span className={`absolute top-5 left-5 px-3 py-1.5 text-[10px] uppercase tracking-widest backdrop-blur-sm ${
+        {project.cardImage && (
+          <img
+            src={project.cardImage}
+            alt={project.title}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          />
+        )}
+        <span className={`absolute top-5 left-5 z-10 px-3 py-1.5 text-[10px] uppercase tracking-widest backdrop-blur-sm ${
           project.status === 'Fertig'
             ? 'bg-taupe-500/95 text-white'
             : 'bg-bone/95 text-stone-800'
