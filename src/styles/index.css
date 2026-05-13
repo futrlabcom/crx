@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bone text-stone-800 font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    @apply bg-taupe-500 text-white;
+  }
+}
+
+@layer components {
+  .container-crx {
+    @apply max-w-8xl mx-auto;
+  }
+  .section-num {
+    @apply font-display italic text-sm text-taupe-500 mb-6;
+  }
+  .display-h1 {
+    @apply font-display font-light tracking-tight leading-[0.95];
+  }
+  .display-h2 {
+    @apply font-display font-light leading-tight tracking-tight;
+  }
+  .grid-overlay {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .grid-overlay-sm {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
