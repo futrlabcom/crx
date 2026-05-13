@@ -29,7 +29,7 @@ export default {
         ink:  '#0A0907',
       },
       fontFamily: {
-        display: ['Fraunces', 'serif'],
+        display: ['Geist', 'sans-serif'],
         sans:    ['Inter', 'sans-serif'],
       },
       letterSpacing: {

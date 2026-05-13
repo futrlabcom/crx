@@ -11,7 +11,7 @@ export default function AnkaufBlock() {
         <div>
           <div className="section-num !text-taupe-100">— 03 / Ankaufsprofil</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-6xl mb-8">
-            Sie haben ein Grundstück oder <em className="text-taupe-100 italic">Bestandsobjekt?</em>
+            Sie haben ein Grundstück oder <em className="text-taupe-100">Bestandsobjekt?</em>
           </h2>
           <p className="text-lg leading-relaxed text-white/70 mb-10 max-w-md">
             Wir kaufen diskret und professionell – Wohn- und Gewerbeimmobilien ab 5.000 m² BGF in Berlin und ausgewählten Großstädten. Erstgespräch innerhalb von 48 Stunden.

@@ -41,7 +41,7 @@ export default function Projekte() {
             </div>
             <h1 className="display-h1 text-6xl md:text-8xl lg:text-[120px]">
               Ausgewählte<br />
-              <em className="italic text-taupe-100 font-light">Arbeiten.</em>
+              <em className="text-taupe-100 font-light">Arbeiten.</em>
             </h1>
           </div>
           <div className="pb-3">
@@ -73,7 +73,7 @@ export default function Projekte() {
               </button>
             ))}
           </div>
-          <div className="font-display italic text-sm text-stone-400">
+          <div className="font-display text-sm text-stone-400">
             {filtered.length} von {projects.length} · sortiert nach Fertigstellung
           </div>
         </div>
@@ -104,14 +104,14 @@ export default function Projekte() {
                   }`}>
                     {p.status}
                   </span>
-                  <span className="absolute bottom-5 right-5 z-10 font-display italic text-sm text-white/85">
+                  <span className="absolute bottom-5 right-5 z-10 font-display text-sm text-white/85">
                     {String(i + 1).padStart(2, '0')} / {String(filtered.length).padStart(2, '0')}
                   </span>
                 </div>
 
                 <div className="flex justify-between items-baseline mb-1.5">
                   <span className="text-[10px] tracking-widest uppercase text-stone-400">{p.location}</span>
-                  <span className="font-display italic text-sm text-taupe-500">{p.year}</span>
+                  <span className="font-display text-sm text-taupe-500">{p.year}</span>
                 </div>
                 <h3 className={`font-display font-normal text-stone-800 tracking-tight ${layout.titleSize}`}>
                   {p.title}

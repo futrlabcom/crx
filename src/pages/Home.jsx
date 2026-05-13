@@ -41,7 +41,7 @@ export default function Home() {
               className="display-h1 text-6xl md:text-8xl lg:text-[104px]"
             >
               Räume, die<br />
-              <em className="italic text-taupe-100 font-light">Generationen</em><br />
+              <em className="text-taupe-100 font-light">Generationen</em><br />
               verbinden.
             </motion.h1>
           </div>
@@ -79,7 +79,7 @@ export default function Home() {
           <div>
             <div className="section-num">— 01 / Unternehmen</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Wir bauen für das, <em className="italic text-taupe-500">was bleibt.</em>
+              Wir bauen für das, <em className="text-taupe-500">was bleibt.</em>
             </h2>
           </div>
           <div className="pt-3">
@@ -105,7 +105,7 @@ export default function Home() {
           <div>
             <div className="section-num">— 02 / Portfolio</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Ausgewählte <em className="italic text-taupe-500">Arbeiten.</em>
+              Ausgewählte <em className="text-taupe-500">Arbeiten.</em>
             </h2>
           </div>
           <Link

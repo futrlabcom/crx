@@ -44,7 +44,7 @@ export default function ProjektDetail() {
           </h1>
 
           <div className="pt-8 border-t border-white/15 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-end">
-            <div className="font-display italic font-light text-xl md:text-2xl text-white/75 leading-snug max-w-2xl">
+            <div className="font-display font-light text-xl md:text-2xl text-white/75 leading-snug max-w-2xl">
               {project.tagline}
             </div>
             <div className="md:text-right">
@@ -84,9 +84,9 @@ export default function ProjektDetail() {
             <div className="section-num">— 01 / Vision</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
               {project.title === 'Frontier' ? (
-                <>Eine neue Ära für<br /><em className="italic text-taupe-500">Neukölln.</em></>
+                <>Eine neue Ära für<br /><em className="text-taupe-500">Neukölln.</em></>
               ) : (
-                <>Das Projekt im <em className="italic text-taupe-500">Detail.</em></>
+                <>Das Projekt im <em className="text-taupe-500">Detail.</em></>
               )}
             </h2>
           </div>
@@ -97,7 +97,7 @@ export default function ProjektDetail() {
               </p>
             ))}
             {project.pullquote && (
-              <blockquote className="font-display italic font-light text-2xl md:text-3xl leading-snug text-taupe-700 border-l-2 border-taupe-500 pl-8 py-2 my-10">
+              <blockquote className="font-display font-light text-2xl md:text-3xl leading-snug text-taupe-700 border-l-2 border-taupe-500 pl-8 py-2 my-10">
                 "{project.pullquote}"
               </blockquote>
             )}
@@ -110,7 +110,7 @@ export default function ProjektDetail() {
         <div className="container-crx mb-14">
           <div className="section-num">— 02 / Galerie</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] mt-3">
-            Architektur, die <em className="italic text-taupe-500">atmet.</em>
+            Architektur, die <em className="text-taupe-500">atmet.</em>
           </h2>
         </div>
 
@@ -132,7 +132,7 @@ export default function ProjektDetail() {
                 style={{ background: img.placeholder }}
               >
                 <div className="absolute inset-0 grid-overlay-sm pointer-events-none" />
-                <div className="absolute bottom-4 left-5 font-display italic text-sm text-white/85">
+                <div className="absolute bottom-4 left-5 font-display text-sm text-white/85">
                   {img.caption}
                 </div>
               </div>
@@ -152,9 +152,9 @@ export default function ProjektDetail() {
             <div className="section-num !text-taupe-100">— 03 / Standort</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-6">
               {project.title === 'Frontier' ? (
-                <>Grenzallee 100.<br /><em className="italic text-taupe-100">Neuköllns neue Mitte.</em></>
+                <>Grenzallee 100.<br /><em className="text-taupe-100">Neuköllns neue Mitte.</em></>
               ) : (
-                <>Standort.<br /><em className="italic text-taupe-100">{project.location}.</em></>
+                <>Standort.<br /><em className="text-taupe-100">{project.location}.</em></>
               )}
             </h2>
             <p className="text-lg leading-relaxed text-white/70 max-w-md mb-5">
@@ -180,7 +180,7 @@ export default function ProjektDetail() {
                 className="w-4 h-4 bg-taupe-500 rounded-full"
                 style={{ boxShadow: '0 0 0 8px rgba(138,122,92,0.3), 0 0 0 16px rgba(138,122,92,0.15)' }}
               />
-              <div className="absolute -top-8 left-6 font-display italic text-sm text-taupe-100">
+              <div className="absolute -top-8 left-6 font-display text-sm text-taupe-100">
                 {project.title}
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function ProjektDetail() {
           <div>
             <div className="section-num">— 04 / Weiter erkunden</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] mt-3">
-              Verwandte <em className="italic text-taupe-500">Projekte.</em>
+              Verwandte <em className="text-taupe-500">Projekte.</em>
             </h2>
           </div>
           <Link
@@ -220,7 +220,7 @@ export default function ProjektDetail() {
               </div>
               <div className="flex justify-between items-baseline mb-1">
                 <span className="text-[10px] tracking-widest uppercase text-stone-400">{r.location}</span>
-                <span className="font-display italic text-sm text-taupe-500">{r.year}</span>
+                <span className="font-display text-sm text-taupe-500">{r.year}</span>
               </div>
               <h3 className="font-display font-normal text-2xl text-stone-800">{r.title}</h3>
               <p className="text-sm text-stone-600 mt-1">{r.nutzung} · {r.bgf}</p>

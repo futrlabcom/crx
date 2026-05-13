@@ -22,9 +22,9 @@ export default function Unternehmen() {
           </div>
           <h1 className="display-h1 text-6xl md:text-8xl lg:text-[120px]">
             Aus Berlin.<br />
-            <em className="italic text-taupe-100 font-light">Für das, was bleibt.</em>
+            <em className="text-taupe-100 font-light">Für das, was bleibt.</em>
           </h1>
-          <div className="font-display italic text-xl md:text-2xl text-white/70 mt-6 max-w-xl">
+          <div className="font-display text-xl md:text-2xl text-white/70 mt-6 max-w-xl">
             Zehn Jahre Projektentwicklung – mit der Geduld eines Bauherrn und der Disziplin eines Investors.
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function Unternehmen() {
           <div>
             <div className="section-num">— 01 / Haltung</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Wir bauen Immobilien, die <em className="italic text-taupe-500">Generationen verbinden.</em>
+              Wir bauen Immobilien, die <em className="text-taupe-500">Generationen verbinden.</em>
             </h2>
           </div>
           <div>
@@ -58,7 +58,7 @@ export default function Unternehmen() {
         <div className="container-crx mb-16">
           <div className="section-num">— 02 / Geschäftsfelder</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mt-3">
-            Sechs Disziplinen, <em className="italic text-taupe-500">eine Handschrift.</em>
+            Sechs Disziplinen, <em className="text-taupe-500">eine Handschrift.</em>
           </h2>
         </div>
 
@@ -68,7 +68,7 @@ export default function Unternehmen() {
               key={s.title}
               className="p-9 md:p-12 border-r border-b border-stone-400/20 hover:bg-taupe-100/10 transition-colors"
             >
-              <div className="font-display italic text-sm text-taupe-500 mb-6">{s.num}</div>
+              <div className="font-display text-sm text-taupe-500 mb-6">{s.num}</div>
               <h3 className="font-display font-normal text-2xl text-stone-800 mb-4 tracking-tight">{s.title}</h3>
               <p className="text-sm leading-relaxed text-stone-600">{s.body}</p>
             </div>
@@ -88,7 +88,7 @@ export default function Unternehmen() {
               alt="Christoph Ruppmann"
               className="w-full h-full object-cover grayscale"
             />
-            <div className="absolute bottom-6 left-6 font-display italic text-white/95 text-base">
+            <div className="absolute bottom-6 left-6 font-display text-white/95 text-base">
               Christoph Ruppmann
             </div>
           </div>
@@ -96,9 +96,9 @@ export default function Unternehmen() {
           <div>
             <div className="section-num">— 03 / Geschäftsführung</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] mb-3">
-              Christoph <em className="italic text-taupe-500">Ruppmann</em>
+              Christoph <em className="text-taupe-500">Ruppmann</em>
             </h2>
-            <div className="font-display italic text-lg text-taupe-500 mb-8">
+            <div className="font-display text-lg text-taupe-500 mb-8">
               Gründer & Geschäftsführer
             </div>
 
@@ -106,7 +106,7 @@ export default function Unternehmen() {
               Christoph Ruppmann ist seit über zwei Jahrzehnten in der Projektentwicklung tätig. Vor der Gründung seines eigenen Unternehmens war er als Projektleiter bei Hines verantwortlich für Vorhaben mit einem Gesamtvolumen von mehr als 500 Millionen Euro.
             </p>
 
-            <blockquote className="border-l-2 border-taupe-500 pl-6 my-8 font-display italic text-xl md:text-2xl leading-snug text-stone-800">
+            <blockquote className="border-l-2 border-taupe-500 pl-6 my-8 font-display text-xl md:text-2xl leading-snug text-stone-800">
               "Gute Immobilien erkennt man daran, dass sie zwanzig Jahre nach Fertigstellung noch immer nicht renoviert werden müssen."
             </blockquote>
 
@@ -136,7 +136,7 @@ export default function Unternehmen() {
           <div className="text-center">
             <div className="section-num">— 04 / Partner & Investoren</div>
             <h3 className="font-display font-light text-3xl text-stone-800 mb-14">
-              In Kooperation mit <em className="italic text-taupe-500">renommierten Häusern.</em>
+              In Kooperation mit <em className="text-taupe-500">renommierten Häusern.</em>
             </h3>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-l border-stone-400/20">
@@ -162,7 +162,7 @@ export default function Unternehmen() {
           <div className="section-num !text-taupe-100">— Gespräch beginnen</div>
           <h2 className="display-h1 text-5xl md:text-6xl lg:text-7xl mb-6">
             Zukunft bauen,<br />
-            <em className="italic text-taupe-100">Werte schaffen.</em>
+            <em className="text-taupe-100">Werte schaffen.</em>
           </h2>
           <p className="text-lg leading-relaxed text-white/65 mb-10">
             Ob Grundstück, Bestandsobjekt oder Investmentopportunität – wir sprechen gerne mit Ihnen. Diskret und auf Augenhöhe.
