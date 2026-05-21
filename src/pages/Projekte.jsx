@@ -93,7 +93,7 @@ export default function Projekte() {
             </div>
             <h1 className="display-h1 text-6xl md:text-8xl lg:text-[120px]">
               Ausgewählte<br />
-              <em className="text-taupe-100 font-light">Arbeiten.</em>
+              <em className="text-taupe-100 font-light">Projekte.</em>
             </h1>
           </div>
           <div className="pb-3 md:text-right">
