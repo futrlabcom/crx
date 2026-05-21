@@ -1,26 +1,31 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { projects } from '../data/projects'
-import StatsBar from '../components/StatsBar'
-import ProjectCard from '../components/ProjectCard'
-import AnkaufBlock from '../components/AnkaufBlock'
+import { projects, projectStats, contact } from '../data/projects'
+import ProjectMedia from '../components/ProjectMedia'
+import PartnerLogos from '../components/PartnerLogos'
+import ruppmann from '../assets/christoph_ruppmann.png'
+
+// Hero plays a chained sequence: walsrode → intro v2 → repeat
+const HERO_VIDEOS = ['/projects/walsrode/hero.mp4', '/hero.mp4']
 
 export default function Home() {
-  const featured = projects[0]                    // Frontier
-  const secondary = projects[1]                   // Cloud No. 7
-  const bottom = projects.slice(2, 5)             // Walsrode, SW122, NK Living
+  // Show top 6 neubau projects on home — uniform clean grid like /projekte
+  const showcase = projects.filter(p => p.type === 'neubau').slice(0, 6)
+  const [heroPhase, setHeroPhase] = useState(0)
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-[720px] h-screen bg-ink text-white overflow-hidden flex items-center">
+      {/* ─── 1 · HERO ──────────────────────────────────────────────── */}
+      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-center">
         <video
-          src="/hero.mp4"
+          key={heroPhase}
+          src={HERO_VIDEOS[heroPhase]}
           autoPlay
           muted
-          loop
           playsInline
           preload="auto"
+          onEnded={() => setHeroPhase(p => (p + 1) % HERO_VIDEOS.length)}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -62,7 +67,7 @@ export default function Home() {
             className="pb-3"
           >
             <p className="text-base leading-relaxed text-white/70 max-w-sm mb-9">
-              Wir entwickeln Wohn-, Büro- und Logistikimmobilien mit einem Projektvolumen von über 500 Millionen Euro – kompromisslos in Qualität, ruhig in der Geste.
+              Wir entwickeln Wohn-, Büro- und Logistikimmobilien mit einem Projektvolumen von über 750 Millionen Euro – kompromisslos in Qualität, ruhig in der Geste.
             </p>
             <Link
               to="/projekte"
@@ -79,28 +84,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <StatsBar />
+      {/* ─── 2 · PARTNERS (Trust-Anchor) ───────────────────────────── */}
+      <PartnerLogos variant="compact" caption="In Kooperation mit" />
 
-      {/* ABOUT */}
-      <section className="bg-bone py-32 lg:py-36 px-8 lg:px-12">
-        <div className="container-crx grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-24">
+      {/* ─── 3 · ÜBER UNS — Kurz-Preview ───────────────────────────── */}
+      <section className="bg-bone py-24 lg:py-32 px-8 lg:px-12">
+        <div className="container-crx grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-24">
           <div>
-            <div className="section-num">— 01 / Unternehmen</div>
-            <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Wir bauen für das, <em className="text-taupe-500">was bleibt.</em>
+            <div className="section-num">— 01 / Über uns</div>
+            <h2 className="display-h2 text-5xl md:text-6xl lg:text-[68px] leading-[1.02]">
+              Aus Berlin.<br />
+              <em className="text-taupe-500">Für das, was bleibt.</em>
             </h2>
           </div>
-          <div className="pt-3">
-            <p className="text-lg leading-relaxed text-stone-600 mb-6 max-w-xl">
-              CRX Real Estate ist ein Berliner Projektentwickler mit über zehn Jahren Erfahrung. Wir realisieren nachhaltige Wohn-, Büro- und Logistikimmobilien – nicht für die nächste Konjunktur, sondern für die nächste Generation.
+          <div className="pt-3 flex flex-col">
+            <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-xl">
+              CRX entwickelt und hält. Mit Projekten im Wert von über 750 Millionen Euro vereinen wir Projektentwicklung und Bestandshaltung unter einem Dach.
             </p>
-            <p className="text-lg leading-relaxed text-stone-600 mb-6 max-w-xl">
-              Unser Fokus: langfristige Wertsteigerung, ökologische Verantwortung und Architektur, die das städtische Umfeld bereichert statt belastet.
+            <p className="text-lg leading-relaxed text-stone-600 mb-8 max-w-xl">
+              Wir entwickeln nicht für die nächste Konjunktur, sondern für die nächsten Jahrzehnte – ökologisch, ökonomisch, städtebaulich.
             </p>
             <Link
               to="/unternehmen"
-              className="inline-flex items-center gap-3 text-taupe-700 hover:text-char text-xs uppercase tracking-widest border-b border-taupe-300 hover:border-char pb-1 mt-3 transition-colors"
+              className="inline-flex items-center gap-3 self-start text-taupe-700 hover:text-char text-xs uppercase tracking-widest border-b border-taupe-300 hover:border-char pb-1 transition-colors"
             >
               Mehr über uns →
             </Link>
@@ -108,35 +114,177 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS */}
-      <section className="bg-cream py-32 lg:py-36 px-8 lg:px-12" id="projekte">
-        <div className="container-crx mb-16 flex flex-col md:flex-row justify-between md:items-end gap-6">
-          <div>
+      {/* ─── 4 · AUSGEWÄHLTE PROJEKTE ─────────────────────────────── */}
+      <section className="bg-bone pb-24 lg:pb-32 px-8 lg:px-12" id="projekte">
+        <div className="container-crx mb-14 lg:mb-20 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-end">
+          <div className="max-w-3xl">
             <div className="section-num">— 02 / Portfolio</div>
-            <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Ausgewählte <em className="text-taupe-500">Arbeiten.</em>
+            <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-6">
+              Ausgewählte <em className="text-taupe-500">Projekte.</em>
             </h2>
+            <p className="text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl">
+              Zehn Vorhaben in drei Städten, über 223.000 m² Bruttogeschossfläche – ein Auszug aus dem Portfolio, das wir entwickeln und halten.
+            </p>
           </div>
           <Link
             to="/projekte"
-            className="self-start md:self-end text-xs uppercase tracking-widest text-stone-800 border-b border-taupe-500 pb-1 hover:text-taupe-500 transition-colors"
+            className="self-start lg:self-end text-xs uppercase tracking-widest text-stone-800 border-b border-taupe-500 pb-1 hover:text-taupe-500 transition-colors whitespace-nowrap"
           >
             Alle Projekte →
           </Link>
         </div>
 
-        <div className="container-crx grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-6">
-          <ProjectCard project={featured} featured />
-          <ProjectCard project={secondary} />
-        </div>
-
-        <div className="container-crx grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-          {bottom.map(p => <ProjectCard key={p.slug} project={p} />)}
+        <div className="container-crx grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-16 lg:gap-y-24">
+          {showcase.map(p => (
+            <Link key={p.slug} to={`/projekte/${p.slug}`} className="group block">
+              <div className="relative aspect-[4/3] overflow-hidden bg-sand mb-6">
+                <ProjectMedia
+                  image={p.cardImage}
+                  video={p.cardVideo}
+                  imgFilter={p.cardImageFilter}
+                  alt={p.title}
+                  imgClassName="transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                />
+              </div>
+              <div className="flex items-baseline justify-between mb-3 text-[11px] tracking-widest uppercase text-stone-400">
+                <span>{p.location}</span>
+                <span>{p.status}{p.year ? ` · ${p.year}` : ''}</span>
+              </div>
+              <h3 className="font-display font-light text-3xl lg:text-[40px] leading-[1.05] tracking-[-0.02em] text-stone-800 mb-2">
+                {p.title}
+              </h3>
+              <p className="text-base text-stone-600">
+                {p.nutzung}
+                {p.bgf && <><span className="text-stone-400 mx-1.5">·</span> {p.bgf}</>}
+              </p>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* ANKAUF */}
-      <AnkaufBlock />
+      {/* ─── 5 · TRACK RECORD — Zahlen die zählen ─────────────────── */}
+      <section className="bg-ink text-white py-24 lg:py-28 px-8 lg:px-12 border-t border-white/5">
+        <div className="container-crx mb-12 lg:mb-16">
+          <div className="section-num !text-taupe-100">— Track Record</div>
+          <h2 className="display-h2 text-3xl md:text-4xl lg:text-[44px] max-w-2xl">
+            Zahlen, die <em className="text-taupe-100">zählen.</em>
+          </h2>
+        </div>
+        <div className="container-crx grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-6">
+          {projectStats.map((s, i) => (
+            <div
+              key={i}
+              className={`px-1 lg:px-6 ${i > 0 ? 'lg:border-l border-white/10' : ''}`}
+            >
+              <div className="font-display font-light text-5xl md:text-6xl lg:text-[64px] leading-none tracking-[-0.03em]">
+                {s.num}
+                {s.unit && <span className="text-base lg:text-lg text-taupe-100 ml-1.5">{s.unit}</span>}
+              </div>
+              <div className="text-[10px] tracking-widest uppercase text-white/45 mt-5">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── 6 · CHRISTOPH-PREVIEW ────────────────────────────────── */}
+      <section className="bg-cream py-24 lg:py-32 px-8 lg:px-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-start">
+          <div className="relative w-44 sm:w-52 lg:w-60 aspect-[3/4] overflow-hidden bg-sand shrink-0">
+            <img
+              src={ruppmann}
+              alt="Christoph Ruppmann"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ filter: 'grayscale(100%)' }}
+            />
+          </div>
+
+          <div>
+            <div className="section-num">— 03 / Geschäftsführung</div>
+            <h2 className="font-display font-light text-4xl md:text-5xl lg:text-[56px] tracking-[-0.02em] mb-2">
+              Christoph <em className="text-taupe-500">Ruppmann.</em>
+            </h2>
+            <div className="text-base text-stone-600 mb-10">
+              Gründer &amp; Geschäftsführer
+            </div>
+
+            <blockquote className="font-display font-light text-xl md:text-2xl lg:text-[26px] leading-snug text-taupe-700 border-l-2 border-taupe-500 pl-6 lg:pl-8 py-2 mb-10 max-w-xl">
+              „Gute Immobilien erkennt man daran, dass sie zwanzig Jahre nach Fertigstellung noch immer nicht renoviert werden müssen."
+            </blockquote>
+
+            <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-8 max-w-xl">
+              Über zwei Jahrzehnte Projektentwicklung. Vor CRX als Projektleiter bei Hines verantwortlich für Vorhaben mit über 500 Millionen Euro.
+            </p>
+
+            <Link
+              to="/unternehmen#geschaeftsfuehrung"
+              className="inline-flex items-center gap-3 text-taupe-700 hover:text-char text-xs uppercase tracking-widest border-b border-taupe-300 hover:border-char pb-1 transition-colors"
+            >
+              Profil &amp; Vita →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7 · KONTAKT-CTA ──────────────────────────────────────── */}
+      <section className="bg-ink text-white py-28 lg:py-36 px-8 lg:px-12 relative overflow-hidden">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(168,152,120,0.16) 0%, transparent 60%)' }}
+        />
+        <div className="container-crx relative z-10 text-center mb-14 lg:mb-16">
+          <div className="section-num !text-taupe-100">— 04 / Kontakt</div>
+          <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-5">
+            Sprich mit <em className="text-taupe-100">uns.</em>
+          </h2>
+          <p className="text-lg leading-relaxed text-white/65 max-w-xl mx-auto">
+            Investoren, Mieter, Partner. Wir nehmen uns Zeit.
+          </p>
+        </div>
+
+        <div className="container-crx relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {/* Card 1 — Allgemeiner Kontakt */}
+          <a
+            href={`mailto:${contact.email}`}
+            className="group block bg-char border border-white/10 hover:border-taupe-300 hover:bg-white/[0.04] p-8 lg:p-10 transition-colors duration-300"
+          >
+            <div className="text-[10px] tracking-widest uppercase text-taupe-100 mb-5">
+              Allgemeiner Kontakt
+            </div>
+            <h3 className="font-display font-light text-2xl lg:text-3xl tracking-[-0.02em] mb-3">
+              Für Anfragen aller Art
+            </h3>
+            <p className="text-sm text-white/55 leading-relaxed mb-8">
+              Investoren, Mieter, Presse, Bewerbungen, Kooperationen – wir antworten in der Regel binnen 48 Stunden.
+            </p>
+            <span className="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-white group-hover:text-taupe-100 transition-colors">
+              {contact.email}
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+
+          {/* Card 2 — Ankaufsprofil */}
+          <Link
+            to="/ankaufsprofil"
+            className="group block bg-char border border-white/10 hover:border-taupe-300 hover:bg-white/[0.04] p-8 lg:p-10 transition-colors duration-300"
+          >
+            <div className="text-[10px] tracking-widest uppercase text-taupe-100 mb-5">
+              Ankaufsprofil
+            </div>
+            <h3 className="font-display font-light text-2xl lg:text-3xl tracking-[-0.02em] mb-3">
+              Für Verkäufer &amp; Makler
+            </h3>
+            <p className="text-sm text-white/55 leading-relaxed mb-8">
+              Grundstücke und Bestandsobjekte – Neubau ab 5.000 m², Bestand ab 10 Einheiten. Diskret, verbindlich, schnell.
+            </p>
+            <span className="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-white group-hover:text-taupe-100 transition-colors">
+              Profil ansehen
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </Link>
+        </div>
+      </section>
     </>
   )
 }

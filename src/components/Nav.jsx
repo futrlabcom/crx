@@ -6,8 +6,8 @@ import logoWhite from '../assets/logo_white.png'
 const links = [
   { to: '/unternehmen', label: 'Unternehmen' },
   { to: '/projekte',    label: 'Projekte' },
-  { to: '#investments', label: 'Investments', disabled: true },
-  { to: '#ankauf',      label: 'Ankaufsprofil' },
+  { to: '/investments', label: 'Investments' },
+  { to: '/ankaufsprofil', label: 'Ankaufsprofil' },
   { to: '#kontakt',     label: 'Kontakt' },
 ]
 

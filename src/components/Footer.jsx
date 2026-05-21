@@ -21,7 +21,8 @@ export default function Footer() {
             <h4 className="text-white text-xs uppercase tracking-widest mb-5 font-medium">Navigation</h4>
             <Link to="/unternehmen" className="block py-1.5 hover:text-taupe-100 transition-colors">Unternehmen</Link>
             <Link to="/projekte" className="block py-1.5 hover:text-taupe-100 transition-colors">Projekte</Link>
-            <a href="#ankauf" className="block py-1.5 hover:text-taupe-100 transition-colors">Ankaufsprofil</a>
+            <Link to="/investments" className="block py-1.5 hover:text-taupe-100 transition-colors">Investments</Link>
+            <Link to="/ankaufsprofil" className="block py-1.5 hover:text-taupe-100 transition-colors">Ankaufsprofil</Link>
           </div>
 
           <div>

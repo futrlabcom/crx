@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { services, partners } from '../data/projects'
+import { services } from '../data/projects'
 import StatsBar from '../components/StatsBar'
+import PartnerLogos from '../components/PartnerLogos'
 import ruppmann from '../assets/christoph_ruppmann.png'
 
 export default function Unternehmen() {
@@ -8,14 +9,24 @@ export default function Unternehmen() {
     <>
       {/* PAGE HERO */}
       <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20">
+        <video
+          src="/unternehmen.mp4"
+          poster="/unternehmen-poster.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 80% 40%, rgba(168,152,120,0.25) 0%, transparent 55%), linear-gradient(180deg, rgba(10,9,7,0.4) 0%, #0A0907 100%)',
+              'linear-gradient(180deg, rgba(10,9,7,0.55) 0%, rgba(10,9,7,0.3) 35%, rgba(10,9,7,0.9) 100%)',
           }}
         />
-        <div className="absolute inset-0 grid-overlay pointer-events-none" />
+        <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
         <div className="container-crx relative z-10">
           <div className="text-xs uppercase tracking-widest text-white/40 mb-6">
             CRX <span className="text-taupe-100">/</span> Unternehmen
@@ -36,12 +47,15 @@ export default function Unternehmen() {
           <div>
             <div className="section-num">— 01 / Haltung</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Wir bauen Immobilien, die <em className="text-taupe-500">Generationen verbinden.</em>
+              CRX entwickelt <em className="text-taupe-500">und hält.</em>
             </h2>
           </div>
           <div>
             <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-2xl">
-              CRX Real Estate ist ein Berliner Projektentwickler mit einem Projektvolumen von über 500 Millionen Euro. Unser Schwerpunkt liegt in Berlin – ergänzt durch ausgewählte Vorhaben in deutschen Großstädten.
+              Mit Projekten im Wert von über 750 Millionen Euro vereinen wir Projektentwicklung und Bestandshaltung unter einem Dach. Wir entwickeln nicht nur Neubauten, sondern halten und pflegen Bestandsimmobilien für die nächste Generation.
+            </p>
+            <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-2xl">
+              Unser Schwerpunkt liegt in Berlin – ergänzt durch ausgewählte Vorhaben in deutschen Großstädten. Bestand ist für uns kein Restposten, sondern Strategie: was wir bauen, soll bei uns bleiben.
             </p>
             <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-2xl">
               Wir entwickeln nicht für die nächste Konjunktur, sondern für die nächsten Jahrzehnte. Nachhaltigkeit ist für uns keine Marketingdisziplin, sondern eine Frage der Bilanz: ökologisch, ökonomisch, städtebaulich.
@@ -131,26 +145,10 @@ export default function Unternehmen() {
       </section>
 
       {/* PARTNERS */}
-      <section className="bg-cream py-24 px-8 lg:px-12">
-        <div className="container-crx">
-          <div className="text-center">
-            <div className="section-num">— 04 / Partner & Investoren</div>
-            <h3 className="font-display font-light text-3xl text-stone-800 mb-14">
-              In Kooperation mit <em className="text-taupe-500">renommierten Häusern.</em>
-            </h3>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-l border-stone-400/20">
-            {partners.map(p => (
-              <div
-                key={p}
-                className="aspect-[2/1] border-r border-b border-stone-400/20 flex items-center justify-center font-display text-base lg:text-lg text-stone-400 hover:text-taupe-500 tracking-wider transition-colors"
-              >
-                {p}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PartnerLogos
+        variant="full"
+        caption="In Kooperation mit renommierten Häusern."
+      />
 
       {/* CTA */}
       <section className="bg-ink text-white py-32 lg:py-36 px-8 lg:px-12 relative overflow-hidden text-center">

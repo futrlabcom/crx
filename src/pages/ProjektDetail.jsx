@@ -1,26 +1,54 @@
+import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { projects } from '../data/projects'
+import logoWhite from '../assets/logo_white.png'
 
 export default function ProjektDetail() {
   const { slug } = useParams()
   const project = projects.find(p => p.slug === slug)
+  const [heroImgFailed, setHeroImgFailed] = useState(false)
 
   if (!project) return <Navigate to="/projekte" replace />
 
   const related = projects.filter(p => p.slug !== slug).slice(0, 3)
   const projectIndex = projects.findIndex(p => p.slug === slug)
+  const heroImgSrc = project.heroImage || project.cardImage
+  const showHeroPlaceholder = !project.heroVideo && (!heroImgSrc || heroImgFailed)
 
   return (
     <>
       {/* HERO */}
       <section
-        className="relative min-h-[720px] h-screen text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20"
+        className="relative min-h-[520px] h-[70vh] text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20"
         style={{ background: project.heroGradient }}
       >
-        {project.cardImage && (
+        {showHeroPlaceholder && (
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ background: 'radial-gradient(ellipse at 50% 50%, #2E2A24 0%, #0A0907 75%)' }}
+            aria-hidden="true"
+          >
+            <img src={logoWhite} alt="" className="h-16 lg:h-20 w-auto opacity-20" />
+          </div>
+        )}
+
+        {project.heroVideo ? (
+          <video
+            src={project.heroVideo}
+            poster={heroImgSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : heroImgSrc && !heroImgFailed && (
           <img
-            src={project.cardImage}
+            src={heroImgSrc}
             alt={project.title}
+            onError={() => setHeroImgFailed(true)}
+            style={project.heroImageFilter ? { filter: project.heroImageFilter } : undefined}
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
@@ -43,7 +71,9 @@ export default function ProjektDetail() {
           </div>
 
           <span className="inline-block px-3.5 py-1.5 bg-taupe-500 text-white text-[10px] uppercase tracking-widest mb-6">
-            {project.status} {project.year && `· Fertigstellung ${project.year}`}
+            {project.type === 'bestand'
+              ? 'Im Bestand'
+              : project.status + (project.year ? ` · Fertigstellung ${project.year}` : '')}
           </span>
 
           <h1 className="display-h1 text-7xl md:text-9xl lg:text-[180px] leading-[0.88] mb-8">
@@ -69,13 +99,22 @@ export default function ProjektDetail() {
       {/* FACTS BAR */}
       <section className="bg-char text-white py-8 px-8 lg:px-12">
         <div className="container-crx grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6">
-          {[
-            { key: 'Nutzung',        val: project.nutzung },
-            { key: 'Geschossfläche', val: project.bgf },
+          {(project.type === 'bestand' ? [
+            { key: 'Nutzung',          val: project.nutzung },
+            project.units_residential && { key: 'Wohneinheiten', val: project.units_residential },
+            project.units_commercial  && { key: 'Gewerbeeinheiten', val: project.units_commercial },
+            { key: 'Standort',         val: project.address },
+            project.tenants && project.tenants.length && { key: 'Mieter', val: project.tenants.join(' · '), accent: true },
+          ] : [
+            { key: 'Nutzung',          val: project.nutzung },
+            { key: 'Geschossfläche',   val: project.bgf },
             project.facadeLength && { key: 'Fassadenlänge', val: project.facadeLength },
-            { key: 'Standort',       val: project.address },
-            { key: 'Status',         val: project.status, accent: true },
-          ].filter(Boolean).map((f, i) => (
+            project.wohnungsmix  && { key: 'Wohnungsmix',   val: project.wohnungsmix },
+            project.baubeginn    && { key: 'Baubeginn',     val: project.baubeginn },
+            project.fertigstellung && { key: 'Fertigstellung', val: project.fertigstellung, accent: true },
+            { key: 'Standort',         val: project.address },
+            !project.fertigstellung && { key: 'Status',     val: project.status, accent: true },
+          ]).filter(Boolean).map((f, i) => (
             <div key={i} className={`px-4 lg:px-8 ${i > 0 ? 'lg:border-l border-white/10' : ''}`}>
               <div className="text-[10px] uppercase tracking-widest text-white/40 mb-2">{f.key}</div>
               <div className={`font-display text-base lg:text-lg ${f.accent ? 'text-taupe-100' : ''}`}>{f.val}</div>
@@ -135,8 +174,7 @@ export default function ProjektDetail() {
             return (
               <div
                 key={i}
-                className={`relative rounded-sm overflow-hidden ${spanClasses[i % 6]}`}
-                style={{ background: project.heroGradient }}
+                className={`relative rounded-sm overflow-hidden bg-sand ${spanClasses[i % 6]}`}
               >
                 {img.src && (
                   <img
@@ -230,15 +268,13 @@ export default function ProjektDetail() {
               to={`/projekte/${r.slug}`}
               className="group block transition-transform duration-400 hover:-translate-y-1"
             >
-              <div
-                className="relative aspect-[4/3] rounded-sm overflow-hidden mb-4"
-                style={{ background: r.heroGradient }}
-              >
+              <div className="relative aspect-[4/3] rounded-sm overflow-hidden mb-4 bg-sand">
                 {r.cardImage && (
                   <img
                     src={r.cardImage}
                     alt={r.title}
                     loading="lazy"
+                    style={r.cardImageFilter ? { filter: r.cardImageFilter } : undefined}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 )}
