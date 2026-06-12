@@ -39,28 +39,23 @@ export default function Home() {
   const showcase = projects.filter(p => p.type === 'neubau').slice(0, 6)
   const [heroPhase, setHeroPhase] = useState(0)
 
-  // Hero title rotation
+  // Hero title rotation — läuft immer (außer reduced-motion)
   const [variantIdx, setVariantIdx] = useState(0)
-  const [hoverPaused, setHoverPaused] = useState(false)
 
   useEffect(() => {
-    if (prefersReducedMotion() || hoverPaused) return
+    if (prefersReducedMotion()) return
     const id = setInterval(() => {
       setVariantIdx(i => (i + 1) % HERO_VARIANTS.length)
     }, HERO_ROTATION_MS)
     return () => clearInterval(id)
-  }, [hoverPaused])
+  }, [])
 
   const variant = HERO_VARIANTS[variantIdx]
 
   return (
     <>
       {/* ─── 1 · HERO ──────────────────────────────────────────────── */}
-      <section
-        className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-center"
-        onMouseEnter={() => setHoverPaused(true)}
-        onMouseLeave={() => setHoverPaused(false)}
-      >
+      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-center">
         <video
           key={heroPhase}
           src={HERO_VIDEOS[heroPhase]}
@@ -89,66 +84,65 @@ export default function Home() {
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
 
-        <div className="container-crx px-8 lg:px-12 pb-24 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-20 items-end relative z-10 w-full">
+        <div className="container-crx px-8 lg:px-12 relative z-10 w-full text-center flex flex-col items-center">
           {/* Titel — rotiert. min-height verhindert Layout-Shift */}
-          <div className="relative min-h-[14rem] sm:min-h-[18rem] lg:min-h-[20rem]">
+          <div className="relative min-h-[12rem] sm:min-h-[15rem] lg:min-h-[18rem] flex items-center justify-center w-full">
             <h1
               key={`title-${variantIdx}`}
               className="font-display leading-[0.95] motion-safe:animate-fade-up"
               style={{
                 fontSize: 'clamp(3.5rem, 7vw, 7.5rem)',
-                fontWeight: 600,
-                letterSpacing: '-0.03em',
+                fontWeight: 300,
+                letterSpacing: '-0.025em',
                 animationDuration: '0.6s',
               }}
             >
               {variant.line1}<br />
-              <em className="not-italic text-taupe-100" style={{ fontWeight: 600 }}>
+              <em className="not-italic text-taupe-100" style={{ fontWeight: 300 }}>
                 {variant.line2}
               </em>
             </h1>
           </div>
 
-          <div className="pb-3">
-            {/* Subtitle — rotiert synchron. min-height verhindert Shift */}
-            <div className="relative min-h-[7rem] mb-9">
-              <p
-                key={`sub-${variantIdx}`}
-                className="leading-relaxed text-white/85 max-w-[32ch] motion-safe:animate-fade-up"
-                style={{
-                  fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
-                  animationDuration: '0.6s',
-                }}
-              >
-                {variant.subtitle}
-              </p>
-            </div>
-
-            {/* Button — statisch, rotiert nicht mit */}
-            <Link
-              to="/projekte"
-              className="inline-flex items-center gap-3.5 px-7 py-4 border border-white/25 hover:bg-taupe-500 hover:border-taupe-500 text-white text-xs uppercase tracking-widest transition-all duration-300 group"
+          {/* Subtitle — rotiert synchron. min-height verhindert Shift */}
+          <div className="relative min-h-[5.5rem] mt-6 mb-9 w-full flex justify-center">
+            <p
+              key={`sub-${variantIdx}`}
+              className="leading-relaxed text-white/85 max-w-[52ch] motion-safe:animate-fade-up"
+              style={{
+                fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
+                fontWeight: 300,
+                animationDuration: '0.6s',
+              }}
             >
-              Unsere Projekte
-              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </Link>
+              {variant.subtitle}
+            </p>
+          </div>
 
-            {/* Slider-Dots (dezent) */}
-            <div className="flex items-center gap-2 mt-8" role="tablist" aria-label="Hero-Variante wählen">
-              {HERO_VARIANTS.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === variantIdx}
-                  aria-label={`Variante ${i + 1}`}
-                  onClick={() => setVariantIdx(i)}
-                  className={`h-px transition-all duration-500 ${
-                    i === variantIdx ? 'w-8 bg-taupe-100' : 'w-5 bg-white/30 hover:bg-white/60'
-                  }`}
-                />
-              ))}
-            </div>
+          {/* Button — statisch, rotiert nicht mit */}
+          <Link
+            to="/projekte"
+            className="inline-flex items-center gap-3.5 px-7 py-4 border border-white/25 hover:bg-taupe-500 hover:border-taupe-500 text-white text-xs uppercase tracking-widest transition-all duration-300 group"
+          >
+            Unsere Projekte
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
+
+          {/* Slider-Dots (dezent) */}
+          <div className="flex items-center gap-2 mt-10" role="tablist" aria-label="Hero-Variante wählen">
+            {HERO_VARIANTS.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={i === variantIdx}
+                aria-label={`Variante ${i + 1}`}
+                onClick={() => setVariantIdx(i)}
+                className={`h-px transition-all duration-500 ${
+                  i === variantIdx ? 'w-8 bg-taupe-100' : 'w-5 bg-white/30 hover:bg-white/60'
+                }`}
+              />
+            ))}
           </div>
         </div>
 
