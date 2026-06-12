@@ -6,8 +6,8 @@ import ProjectMedia from '../components/ProjectMedia'
 import PartnerLogos from '../components/PartnerLogos'
 import logoWhite from '../assets/logo_white.png'
 
-// Hero plays a chained sequence: walsrode → intro v2 → repeat
-const HERO_VIDEOS = ['/projects/walsrode/hero.mp4', '/hero.mp4']
+// Hero spielt nur Walsrode im Loop (CRX-Intro-Video entfernt 12.06.2026)
+const HERO_VIDEO = '/projects/walsrode/hero.mp4'
 
 // Hero rotiert durch 3 Titel/Subline-Varianten alle 5s.
 const HERO_VARIANTS = [
@@ -37,7 +37,6 @@ function prefersReducedMotion() {
 export default function Home() {
   // Show top 6 neubau projects on home — uniform clean grid like /projekte
   const showcase = projects.filter(p => p.type === 'neubau').slice(0, 6)
-  const [heroPhase, setHeroPhase] = useState(0)
 
   // Hero title rotation — läuft immer (außer reduced-motion)
   const [variantIdx, setVariantIdx] = useState(0)
@@ -57,13 +56,12 @@ export default function Home() {
       {/* ─── 1 · HERO ──────────────────────────────────────────────── */}
       <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex flex-col">
         <video
-          key={heroPhase}
-          src={HERO_VIDEOS[heroPhase]}
+          src={HERO_VIDEO}
           autoPlay
           muted
+          loop
           playsInline
           preload="auto"
-          onEnded={() => setHeroPhase(p => (p + 1) % HERO_VIDEOS.length)}
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Vertikaler Scrim — oben/unten dunkel */}
