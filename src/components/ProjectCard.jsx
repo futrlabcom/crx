@@ -22,7 +22,7 @@ export default function ProjectCard({ project, featured = false }) {
       </div>
 
       <div className="flex justify-between items-baseline mb-2">
-        <span className="text-[10px] tracking-widest uppercase text-stone-400">{project.location}</span>
+        <span className="text-[10px] tracking-widest uppercase text-stone-400">{project.hide_location ? '' : project.location}</span>
         <span className="font-display text-sm text-taupe-500">{project.year}</span>
       </div>
       <h3 className={`font-display font-normal tracking-tight text-stone-800 ${

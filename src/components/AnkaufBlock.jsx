@@ -17,7 +17,7 @@ export default function AnkaufBlock() {
             Sie haben ein Grundstück oder <em className="text-taupe-100">Bestandsobjekt?</em>
           </h2>
           <p className="text-lg leading-relaxed text-white/70 max-w-2xl">
-            CRX entwickelt und hält – wir kaufen diskret, professionell und mit klarem Profil. Erstgespräch innerhalb von 48 Stunden, Indikativ ohne Umwege.
+            CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und Bestandsobjekte.
           </p>
         </div>
 

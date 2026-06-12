@@ -1,4 +1,31 @@
+import { useState } from 'react'
 import { partners } from '../data/projects'
+
+// Logo-Image mit Fallback auf Partner-Name als Text, wenn das Asset
+// (noch) nicht vorhanden ist.
+function PartnerLogoImg({ partner, className, style }) {
+  const [failed, setFailed] = useState(false)
+  if (failed) {
+    return (
+      <span
+        className="font-display text-sm md:text-base lg:text-lg tracking-[-0.01em] text-stone-800/70 px-2 text-center"
+        title={partner.name}
+      >
+        {partner.name}
+      </span>
+    )
+  }
+  return (
+    <img
+      src={partner.logo}
+      alt={partner.name}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className={className}
+      style={style}
+    />
+  )
+}
 
 // Trust-Anchor: zentral verwaltete Partner-Logos. Zwei Varianten:
 //
@@ -49,13 +76,11 @@ export default function PartnerLogos({
             {looped.map((p, i) => (
               <div
                 key={`${p.name}-${i}`}
-                className="shrink-0 flex items-center justify-center opacity-65 hover:opacity-100 transition-opacity duration-300"
+                className="shrink-0 flex items-center justify-center opacity-65 hover:opacity-100 transition-opacity duration-300 min-w-[160px] lg:min-w-[200px] h-16 lg:h-24"
                 title={p.name}
               >
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  loading="lazy"
+                <PartnerLogoImg
+                  partner={p}
                   className="h-16 lg:h-24 w-auto max-w-[260px] object-contain"
                   style={{ filter: 'brightness(0)' }}
                 />
@@ -98,10 +123,8 @@ export default function PartnerLogos({
               className="group aspect-[2/1] border-r border-b border-stone-400/20 flex items-center justify-center p-4 lg:p-6"
               title={p.name}
             >
-              <img
-                src={p.logo}
-                alt={p.name}
-                loading="lazy"
+              <PartnerLogoImg
+                partner={p}
                 className="max-h-24 lg:max-h-32 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ filter: 'brightness(0)' }}
               />

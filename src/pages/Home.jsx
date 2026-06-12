@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { projects, projectStats, contact } from '../data/projects'
 import ProjectMedia from '../components/ProjectMedia'
 import PartnerLogos from '../components/PartnerLogos'
-import ruppmann from '../assets/christoph_ruppmann.png'
+import logoWhite from '../assets/logo_white.png'
 
 // Hero plays a chained sequence: walsrode → intro v2 → repeat
 const HERO_VIDEOS = ['/projects/walsrode/hero.mp4', '/hero.mp4']
@@ -39,24 +39,14 @@ export default function Home() {
 
         <div className="container-crx px-8 lg:px-12 pb-24 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-20 items-end relative z-10 w-full">
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.1 }}
-              className="text-[13px] tracking-widest uppercase text-white/55 mb-9 flex items-center gap-3"
-            >
-              <span className="w-8 h-px bg-taupe-300" />
-              Projektentwicklung · Berlin · Seit 2014
-            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.25 }}
               className="display-h1 text-6xl md:text-8xl lg:text-[104px]"
             >
-              Räume, die<br />
-              <em className="text-taupe-100 font-light">Generationen</em><br />
-              verbinden.
+              Für das,<br />
+              <em className="text-taupe-100 font-light">was bleibt.</em>
             </motion.h1>
           </div>
 
@@ -67,7 +57,7 @@ export default function Home() {
             className="pb-3"
           >
             <p className="text-base leading-relaxed text-white/70 max-w-sm mb-9">
-              Wir entwickeln Wohn-, Büro- und Logistikimmobilien mit einem Projektvolumen von über 750 Millionen Euro – kompromisslos in Qualität, ruhig in der Geste.
+              Wir entwickeln Wohn-, Büro- und Logistikimmobilien – kompromisslos in Qualität, ruhig in der Geste.
             </p>
             <Link
               to="/projekte"
@@ -99,7 +89,7 @@ export default function Home() {
           </div>
           <div className="pt-3 flex flex-col">
             <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-xl">
-              CRX entwickelt und hält. Mit Projekten im Wert von über 750 Millionen Euro vereinen wir Projektentwicklung und Bestandshaltung unter einem Dach.
+              CRX entwickelt und hält. Wir vereinen Projektentwicklung und Bestandshaltung unter einem Dach.
             </p>
             <p className="text-lg leading-relaxed text-stone-600 mb-8 max-w-xl">
               Wir entwickeln nicht für die nächste Konjunktur, sondern für die nächsten Jahrzehnte – ökologisch, ökonomisch, städtebaulich.
@@ -147,7 +137,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex items-baseline justify-between mb-3 text-[11px] tracking-widest uppercase text-stone-400">
-                <span>{p.location}</span>
+                <span>{p.hide_location ? '' : p.location}</span>
                 <span>{p.status}{p.year ? ` · ${p.year}` : ''}</span>
               </div>
               <h3 className="font-display font-light text-3xl lg:text-[40px] leading-[1.05] tracking-[-0.02em] text-stone-800 mb-2">
@@ -188,40 +178,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 6 · CHRISTOPH-PREVIEW ────────────────────────────────── */}
+      {/* ─── 6 · DAS UNTERNEHMEN — Preview ─────────────────────────── */}
       <section className="bg-cream py-24 lg:py-32 px-8 lg:px-12">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-start">
-          <div className="relative w-44 sm:w-52 lg:w-60 aspect-[3/4] overflow-hidden bg-sand shrink-0">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Office-Bild — Platzhalter bis Asset folgt */}
+          <div
+            className="relative aspect-[4/3] overflow-hidden flex items-center justify-center"
+            style={{ background: 'radial-gradient(ellipse at 50% 50%, #2E2A24 0%, #0A0907 75%)' }}
+          >
             <img
-              src={ruppmann}
-              alt="Christoph Ruppmann"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ filter: 'grayscale(100%)' }}
+              src={logoWhite}
+              alt=""
+              aria-hidden="true"
+              className="h-12 lg:h-16 w-auto opacity-25"
             />
+            <span className="absolute bottom-4 left-5 text-[10px] tracking-widest uppercase text-white/40">
+              Office · Bild folgt
+            </span>
           </div>
 
           <div>
-            <div className="section-num">— 03 / Geschäftsführung</div>
-            <h2 className="font-display font-light text-4xl md:text-5xl lg:text-[56px] tracking-[-0.02em] mb-2">
-              Christoph <em className="text-taupe-500">Ruppmann.</em>
+            <div className="section-num">— 03 / Das Unternehmen</div>
+            <h2 className="font-display font-light text-4xl md:text-5xl lg:text-[56px] tracking-[-0.02em] leading-[1.05] mb-8">
+              Berliner Projektentwickler und <em className="text-taupe-500">Bestandshalter.</em>
             </h2>
-            <div className="text-base text-stone-600 mb-10">
-              Gründer &amp; Geschäftsführer
-            </div>
 
-            <blockquote className="font-display font-light text-xl md:text-2xl lg:text-[26px] leading-snug text-taupe-700 border-l-2 border-taupe-500 pl-6 lg:pl-8 py-2 mb-10 max-w-xl">
-              „Gute Immobilien erkennt man daran, dass sie zwanzig Jahre nach Fertigstellung noch immer nicht renoviert werden müssen."
-            </blockquote>
-
-            <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-8 max-w-xl">
-              Über zwei Jahrzehnte Projektentwicklung. Vor CRX als Projektleiter bei Hines verantwortlich für Vorhaben mit über 500 Millionen Euro.
+            <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-5 max-w-xl">
+              CRX Real Estate entwickelt und hält. Unser Schwerpunkt liegt in Berlin – ergänzt durch ausgewählte Vorhaben in deutschen Großstädten.
+            </p>
+            <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-10 max-w-xl">
+              Wir entwickeln nicht für die nächste Konjunktur, sondern für die nächsten Jahrzehnte. Bestand ist für uns kein Restposten, sondern Strategie.
             </p>
 
             <Link
-              to="/unternehmen#geschaeftsfuehrung"
+              to="/unternehmen"
               className="inline-flex items-center gap-3 text-taupe-700 hover:text-char text-xs uppercase tracking-widest border-b border-taupe-300 hover:border-char pb-1 transition-colors"
             >
-              Profil &amp; Vita →
+              Mehr über uns →
             </Link>
           </div>
         </div>
@@ -236,7 +229,7 @@ export default function Home() {
         <div className="container-crx relative z-10 text-center mb-14 lg:mb-16">
           <div className="section-num !text-taupe-100">— 04 / Kontakt</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-5">
-            Sprich mit <em className="text-taupe-100">uns.</em>
+            Kontaktiere <em className="text-taupe-100">uns.</em>
           </h2>
           <p className="text-lg leading-relaxed text-white/65 max-w-xl mx-auto">
             Investoren, Mieter, Partner. Wir nehmen uns Zeit.
@@ -253,10 +246,10 @@ export default function Home() {
               Allgemeiner Kontakt
             </div>
             <h3 className="font-display font-light text-2xl lg:text-3xl tracking-[-0.02em] mb-3">
-              Für Anfragen aller Art
+              Wir antworten.
             </h3>
             <p className="text-sm text-white/55 leading-relaxed mb-8">
-              Investoren, Mieter, Presse, Bewerbungen, Kooperationen – wir antworten in der Regel binnen 48 Stunden.
+              Investoren, Mieter, Presse, Bewerbungen, Kooperationen – schreiben Sie uns direkt.
             </p>
             <span className="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-white group-hover:text-taupe-100 transition-colors">
               {contact.email}

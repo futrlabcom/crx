@@ -117,29 +117,13 @@ export default function Unternehmen() {
             </div>
 
             <p className="text-base leading-relaxed text-stone-600 mb-5">
-              Christoph Ruppmann ist seit über zwei Jahrzehnten in der Projektentwicklung tätig. Vor der Gründung seines eigenen Unternehmens war er als Projektleiter bei Hines verantwortlich für Vorhaben mit einem Gesamtvolumen von mehr als 500 Millionen Euro.
+              Christoph Ruppmann ist seit über 15 Jahren in der Projektentwicklung tätig. Verantwortlich bei Hines steuerte er Vorhaben mit einem Gesamtvolumen von mehr als 500 Millionen Euro. Mit CRX Real Estate baut er seinen Bestand an Neubauimmobilien in Berlin systematisch aus.
             </p>
 
-            <blockquote className="border-l-2 border-taupe-500 pl-6 my-8 font-display text-xl md:text-2xl leading-snug text-stone-800">
-              "Gute Immobilien erkennt man daran, dass sie zwanzig Jahre nach Fertigstellung noch immer nicht renoviert werden müssen."
-            </blockquote>
-
-            <p className="text-base leading-relaxed text-stone-600 mb-5">
-              2019 gründete er die Ruppmann Investment GmbH, die 2024 in CRX Real Estate GmbH umfirmiert wurde. Das Unternehmen baut seinen Bestand an Neubauimmobilien in Berlin systematisch aus.
-            </p>
-
-            <div className="mt-10 pt-8 border-t border-stone-400/20 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <div className="text-[10px] uppercase tracking-widest text-stone-400 mb-2">Vorgängerprojekt</div>
-                <h4 className="font-display text-xl text-stone-800">ZOOM am Bahnhof Zoo</h4>
-                <span className="text-sm text-stone-600 block mt-1">Berlin · bei Hines</span>
-              </div>
-              <div>
-                <div className="text-[10px] uppercase tracking-widest text-stone-400 mb-2">Vorgängerprojekt</div>
-                <h4 className="font-display text-xl text-stone-800">Stadtquartier Südkreuz</h4>
-                <span className="text-sm text-stone-600 block mt-1">Berlin · bei Hines</span>
-              </div>
-            </div>
+            {/*
+              VORGÄNGERPROJEKT-BLOCK + PULLQUOTE entfernt 21.05.2026.
+              Wird später als eigenes Modul (ZOOM + Stadtquartier Südkreuz) wieder aufgenommen.
+            */}
           </div>
         </div>
       </section>

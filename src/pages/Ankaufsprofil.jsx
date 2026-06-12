@@ -46,7 +46,7 @@ export default function Ankaufsprofil() {
               Entwickeln <em className="text-taupe-500">und</em> halten.
             </h2>
             <p className="text-lg leading-relaxed text-stone-600 mt-6">
-              Wir bauen Neubauten für die nächste Generation – und wir halten Bestand, den wir selbst pflegen wollen. Was wir dafür suchen:
+              CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und Bestandsobjekte.
             </p>
           </div>
 
@@ -82,10 +82,10 @@ export default function Ankaufsprofil() {
           <div className="mb-16 max-w-2xl">
             <div className="section-num">— 02 / Ablauf</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Vier Schritte, <em className="text-taupe-500">keine Schleifen.</em>
+              Vier Schritte, <em className="text-taupe-500">kurze Wege.</em>
             </h2>
             <p className="text-lg leading-relaxed text-stone-600 mt-6 max-w-xl">
-              Wir entscheiden schnell und sauber. Vom Erstkontakt bis zum Notartermin vergehen typischerweise acht bis zwölf Wochen.
+              Wir entscheiden schnell und zuverlässig. Vom Erstkontakt bis zum Notartermin vergehen typischerweise acht bis zwölf Wochen.
             </p>
           </div>
 
@@ -107,39 +107,6 @@ export default function Ankaufsprofil() {
         </div>
       </section>
 
-      {/* DISCRETION */}
-      <section className="bg-bone py-24 lg:py-32 px-8 lg:px-12">
-        <div className="container-crx grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-24">
-          <div>
-            <div className="section-num">— 03 / Diskretion</div>
-            <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Was bei uns <em className="text-taupe-500">drin bleibt.</em>
-            </h2>
-          </div>
-          <div className="pt-3">
-            <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-xl">
-              Jede Objekteinreichung wird vertraulich behandelt. Auf Wunsch arbeiten wir unter NDA – auch in der Erstprüfung. Daten verlassen das Haus nicht.
-            </p>
-            <p className="text-lg leading-relaxed text-stone-600 mb-10 max-w-xl">
-              Wir sind unmittelbarer Ankäufer für eigene Bestände und eigene Entwicklungen. Keine Vermittlung, keine Datenweitergabe, keine Bietergefechte hinter Ihrem Rücken.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl">
-              {[
-                { k: 'NDA',          v: 'auf Anfrage, jederzeit' },
-                { k: 'Maklerfrei',   v: 'oder mit Provision verhandelbar' },
-                { k: 'Finanzierung', v: 'Eigenkapital + Bank, bewährt' },
-                { k: 'Abwicklung',   v: 'klassischer Notartermin' },
-              ].map(item => (
-                <div key={item.k} className="border-t border-stone-400/30 pt-4">
-                  <div className="text-[10px] uppercase tracking-widest text-stone-400 mb-1">{item.k}</div>
-                  <div className="text-base text-stone-800">{item.v}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CONTACT CTA */}
       <section className="bg-ink text-white py-28 lg:py-36 px-8 lg:px-12 relative overflow-hidden text-center">
         <div
@@ -147,25 +114,19 @@ export default function Ankaufsprofil() {
           style={{ background: 'radial-gradient(circle, rgba(168,152,120,0.16) 0%, transparent 60%)' }}
         />
         <div className="container-crx relative z-10 max-w-3xl mx-auto">
-          <div className="section-num !text-taupe-100">— 04 / Einreichen</div>
+          <div className="section-num !text-taupe-100">— 03 / Einreichen</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-8">
             Wir freuen uns auf <em className="text-taupe-100">Ihr Objekt.</em>
           </h2>
           <p className="text-lg leading-relaxed text-white/70 mb-10 max-w-xl mx-auto">
-            Schicken Sie Exposé oder Eckdaten direkt an Christoph Ruppmann. Antwort innerhalb von 48 Stunden, garantiert.
+            Schicken Sie Exposé oder Eckdaten direkt an unser Team.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+          <div className="flex justify-center items-center mb-10">
             <a
               href={`mailto:${contact.email}?subject=Objekteinreichung`}
               className="inline-flex items-center gap-3 px-8 py-4 bg-taupe-500 hover:bg-taupe-700 text-white text-xs uppercase tracking-widest transition-colors"
             >
-              {contact.email} <span>→</span>
-            </a>
-            <a
-              href={`tel:${contact.phoneRaw}`}
-              className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 hover:border-taupe-100 hover:text-taupe-100 text-white text-xs uppercase tracking-widest transition-colors"
-            >
-              {contact.phone}
+              INFO@CRX-RE.COM <span>→</span>
             </a>
           </div>
           <Link

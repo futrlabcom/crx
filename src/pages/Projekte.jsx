@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom'
 import AnkaufBlock from '../components/AnkaufBlock'
 import ProjectMedia from '../components/ProjectMedia'
 
-const categories = ['Alle', 'Wohnen', 'Büro', 'Logistik', 'Gewerbe']
+// Filter springt zu den jeweiligen Anker-Sektionen statt das Grid zu filtern
+const FILTERS = [
+  { label: 'Alle',    target: null },
+  { label: 'Neubau',  target: 'neubau' },
+  { label: 'Bestand', target: 'bestand' },
+]
 
 function ProjectCardLink({ p }) {
   return (
@@ -20,7 +25,7 @@ function ProjectCardLink({ p }) {
       </div>
 
       <div className="flex items-baseline justify-between mb-3 text-[11px] tracking-widest uppercase text-stone-400">
-        <span>{p.location}</span>
+        <span>{p.hide_location ? '' : p.location}</span>
         <span>{p.status}{p.year ? ` · ${p.year}` : ''}</span>
       </div>
       <h3 className="font-display font-light text-3xl lg:text-[40px] leading-[1.05] tracking-[-0.02em] text-stone-800 mb-2">
@@ -37,10 +42,10 @@ function ProjectCardLink({ p }) {
   )
 }
 
-function ProjectsGrid({ items, eyebrow, num, title }) {
+function ProjectsGrid({ items, eyebrow, num, title, anchor }) {
   if (!items.length) return null
   return (
-    <section className="bg-bone py-20 lg:py-28 px-8 lg:px-12">
+    <section id={anchor} className="bg-bone py-20 lg:py-28 px-8 lg:px-12 scroll-mt-24">
       <div className="container-crx mb-12 lg:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           <div className="section-num">— {num} / {eyebrow}</div>
@@ -59,15 +64,28 @@ function ProjectsGrid({ items, eyebrow, num, title }) {
   )
 }
 
+// Frontier wird ans Ende der Neubau-Liste sortiert (21.05.2026)
+function sortFrontierLast(list) {
+  const others = list.filter(p => p.slug !== 'frontier')
+  const frontier = list.filter(p => p.slug === 'frontier')
+  return [...others, ...frontier]
+}
+
 export default function Projekte() {
   const [filter, setFilter] = useState('Alle')
 
-  const filtered = useMemo(() => (
-    filter === 'Alle' ? projects : projects.filter(p => p.category === filter)
-  ), [filter])
+  const neubau   = useMemo(() => sortFrontierLast(projects.filter(p => p.type === 'neubau')),  [])
+  const bestand  = useMemo(() => projects.filter(p => p.type === 'bestand'), [])
 
-  const neubau   = filtered.filter(p => p.type === 'neubau')
-  const bestand  = filtered.filter(p => p.type === 'bestand')
+  const handleFilter = (f) => {
+    setFilter(f.label)
+    if (f.target) {
+      const el = document.getElementById(f.target)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   return (
     <>
@@ -92,7 +110,7 @@ export default function Projekte() {
               CRX <span className="text-taupe-100">/</span> Projekte
             </div>
             <h1 className="display-h1 text-6xl md:text-8xl lg:text-[120px]">
-              Ausgewählte<br />
+              Unsere<br />
               <em className="text-taupe-100 font-light">Projekte.</em>
             </h1>
           </div>
@@ -107,26 +125,26 @@ export default function Projekte() {
         </div>
       </section>
 
-      {/* FILTER */}
+      {/* FILTER — springt zu Anker-Sektion */}
       <div className="bg-cream border-b border-stone-400/15 px-8 lg:px-12 py-6 sticky top-0 z-30 backdrop-blur-sm">
         <div className="container-crx flex flex-wrap items-center justify-between gap-6">
           <div className="flex flex-wrap gap-1">
-            {categories.map(c => (
+            {FILTERS.map(f => (
               <button
-                key={c}
-                onClick={() => setFilter(c)}
+                key={f.label}
+                onClick={() => handleFilter(f)}
                 className={`px-5 py-2.5 text-xs uppercase tracking-widest transition-all ${
-                  filter === c
+                  filter === f.label
                     ? 'bg-char text-white'
                     : 'text-stone-600 hover:text-taupe-500'
                 }`}
               >
-                {c}
+                {f.label}
               </button>
             ))}
           </div>
           <div className="font-display text-sm text-stone-400">
-            {filtered.length} von {projects.length}
+            {neubau.length + bestand.length} Projekte
           </div>
         </div>
       </div>
@@ -137,6 +155,7 @@ export default function Projekte() {
         num="01"
         eyebrow="Neubauprojekte"
         title={<>Was wir <em className="text-taupe-500">bauen.</em></>}
+        anchor="neubau"
       />
 
       {/* BESTANDSOBJEKTE */}
@@ -145,6 +164,7 @@ export default function Projekte() {
         num="02"
         eyebrow="Bestandsobjekte"
         title={<>Was wir <em className="text-taupe-500">halten.</em></>}
+        anchor="bestand"
       />
 
       {/* ANKAUF */}

@@ -77,6 +77,7 @@ export const projects = [
     slug: 'logistikzentrum-walsrode',
     title: 'Logistikzentrum Walsrode',
     type: 'neubau',
+    hide_location: true,
     tagline: 'Zukunftsweisende Logistik auf zehn Hektar – mit Photovoltaik, Erdwärme und Keller Group als Ankermieter.',
     status: 'Im Bau',
     year: '2025',
@@ -197,14 +198,16 @@ export const projects = [
     slug: 'hms28',
     title: 'HMS28',
     type: 'neubau',
-    tagline: 'Hedemannstraße 28–29 – Wohnen oder Hotel in der Mitte Berlins.',
+    tagline: 'Hedemannstraße 28–29 – Wohnen und Hotel in der Mitte Berlins.',
     status: 'In Planung',
-    year: null,
+    year: '2029',
+    baubeginn: 'Q3 2027',
+    fertigstellung: 'Q2 2029',
     location: 'Berlin · Kreuzberg',
     address: 'Hedemannstraße 28–29, 10963 Berlin',
     category: 'Wohnen',
     bgf: '10.500 m²',
-    nutzung: 'Wohnen oder Hotel',
+    nutzung: 'Wohnen und Hotel',
     heroGradient: 'linear-gradient(135deg, #C9BBA0 0%, #5C4F3A 100%)',
     cardImage: '/projects/hms28/cover.jpg',
     gallery: [],
@@ -218,13 +221,14 @@ export const projects = [
     slug: 'logpark-wettringen',
     title: 'LOGPARK Wettringen',
     type: 'neubau',
-    tagline: '65.250 Quadratmeter Logistik und Büro in Nordrhein-Westfalen.',
+    hide_location: true,
+    tagline: '65.250 Quadratmeter Logistik und Büro in Bayern.',
     status: 'Im Bau',
     year: '2027',
     baubeginn: '2025',
     fertigstellung: '2027',
-    location: 'Wettringen · NRW',
-    address: 'Wettringen, Nordrhein-Westfalen',
+    location: 'Wettringen · Bayern',
+    address: 'Wettringen, Bayern',
     category: 'Logistik',
     bgf: '65.250 m²',
     nutzung: 'Büro- und Logistikgebäude',
@@ -239,7 +243,7 @@ export const projects = [
       { src: '/projects/logpark-wettringen/02-aerial.png',       caption: 'Grundriss · Volumenstudie' },
     ],
     description: [
-      'LOGPARK Wettringen realisiert ein kombiniertes Büro- und Logistikgebäude mit 65.250 m² Bruttogeschossfläche im westfälischen Wettringen. Baubeginn 2025, Fertigstellung 2027.',
+      'LOGPARK Wettringen realisiert ein kombiniertes Büro- und Logistikgebäude mit 65.250 m² Bruttogeschossfläche im bayerischen Wettringen. Baubeginn 2025, Fertigstellung 2027.',
       'Das Projekt verbindet moderne Logistikflächen mit einem hochwertigen Bürokopfbau – ein Modell für nachhaltige Gewerbeimmobilien außerhalb der Großstadt. Holzfassade am Office-Riegel, große Verglasung, klare Trennung von Anlieferung und Mitarbeiterbereich.',
     ],
     pullquote: 'Logistik gehört nicht an den Stadtrand. Sie gehört dorthin, wo sie funktioniert.',
@@ -293,30 +297,33 @@ export const projects = [
 
 export const projectStats = [
   { num: '750',     unit: 'Mio €', label: 'Projektvolumen' },
-  { num: '223.785', unit: 'm²',    label: 'Bruttogeschossfläche' },
+  { num: '235.675', unit: 'm²',    label: 'Bruttogeschossfläche' },
   { num: '10',      unit: null,    label: 'Projekte' },
   { num: '3',       unit: null,    label: 'Städte' },
   { num: '12',      unit: 'Jahre', label: 'Erfahrung' },
 ]
 
 export const services = [
-  { num: 'i.',   title: 'Projektentwicklung',          body: 'Planung und Realisierung nachhaltiger Immobilienprojekte in urbanen Zentren – mit Fokus auf innovative Baukonzepte und langlebige Gestaltung.' },
-  { num: 'ii.',  title: 'Wohnimmobilien',              body: 'Optimierte Grundrisse und moderne Technologien für effiziente Wohnlösungen. Bezahlbarer Wohnraum für Familien und Mikroapartments.' },
-  { num: 'iii.', title: 'Bürogebäude & Boardinghäuser', body: 'Moderne Arbeitswelten und temporäre Wohnlösungen, die funktionale Effizienz mit Designqualität verbinden.' },
-  { num: 'iv.',  title: 'Logistikimmobilien',          body: 'Logistikzentren und Lagerhallen mit fortschrittlicher Automatisierung. Smart-Technologien für zukunftssichere Infrastruktur.' },
-  { num: 'v.',   title: 'Investments',                 body: 'Strategische Investitionen in Immobilien mit Wachstumspotenzial – Akquise, Finanzierung und Verwaltung institutioneller Portfolios.' },
-  { num: 'vi.',  title: 'Venture Capital',             body: 'Finanzierung von Start-ups und innovativen Unternehmen mit Fokus auf langfristiges Wachstum und nachhaltige Technologieinnovation.' },
+  { num: 'i.',   title: 'Projektentwicklung',  body: 'Planung und Realisierung nachhaltiger Neubau-Immobilienprojekte in urbanen Zentren – mit Fokus auf innovative Baukonzepte und langlebige Gestaltung.' },
+  { num: 'ii.',  title: 'Bestandsimmobilien',  body: 'Entwicklung und Sanierung von bestehenden Immobilien mit energetischem neuen Standard.' },
+  { num: 'iii.', title: 'Investments',         body: 'Kapitalgeber und Investitionen in verschiedene Asset-Klassen.' },
+  { num: 'iv.',  title: 'Venture Capital',     body: 'Finanzierung von Start-ups und innovativen Unternehmen mit Fokus auf langfristiges Wachstum und nachhaltige Technologieinnovation.' },
+  // KLÄRUNG OFFEN — vorerst auskommentiert (Korrektur-Meeting 21.05.2026):
+  // { num: 'v.',  title: 'Bürogebäude & Boardinghäuser', body: 'Moderne Arbeitswelten und temporäre Wohnlösungen, die funktionale Effizienz mit Designqualität verbinden.' },
+  // { num: 'vi.', title: 'Logistikimmobilien',          body: 'Logistikzentren und Lagerhallen mit fortschrittlicher Automatisierung. Smart-Technologien für zukunftssichere Infrastruktur.' },
 ]
 
 export const partners = [
-  { name: 'AB Group',                       logo: '/partners/ab-group.png'     },
-  { name: 'KanAm',                          logo: '/partners/kanam.png'        },
-  { name: 'ZAR',                            logo: '/partners/zar.png'          },
-  { name: 'Aberdeen Standard Investments',  logo: '/partners/aberdeen.png'     },
-  { name: 'TEN',                            logo: '/partners/ten.png'          },
-  { name: 'Schwäbische Wohnungs AG',        logo: '/partners/schwaebische.png' },
-  { name: 'Keller',                         logo: '/partners/keller.png'       },
-  { name: 'ABR',                            logo: '/partners/abr.png'          },
+  { name: 'AB Group',    logo: '/partners/ab-group.png'  },
+  { name: 'KanAm',       logo: '/partners/kanam.png'     },
+  { name: 'ZAR',         logo: '/partners/zar.png'       },
+  { name: 'TEN',         logo: '/partners/ten.png'       },
+  { name: 'Keller',      logo: '/partners/keller.png'    },
+  { name: 'ABR',         logo: '/partners/abr.png'       },
+  // Neu — Logos folgen, Platzhalter-Slots aktiv:
+  { name: 'Greystar',    logo: '/partners/greystar.png'  },
+  { name: 'Berlinovo',   logo: '/partners/berlinovo.png' },
+  { name: 'Land Berlin', logo: '/partners/land-berlin.png' },
 ]
 
 export const ankaufKriterien = [
@@ -331,24 +338,22 @@ export const ankaufKriterien = [
 export const ankaufProfile = {
   neubau: {
     title: 'Neubau-Entwicklungen',
-    intro: 'Grundstücke und Bestandsgebäude mit Entwicklungspotenzial – wir übernehmen Planungsrecht, Baugenehmigung und Realisierung.',
+    intro: 'Grundstücke mit Entwicklungspotenzial – wir übernehmen Planungsrecht, Baugenehmigung und Realisierung.',
     criteria: [
-      { key: 'Volumen',    val: 'ab ca. 5.000 m² BGF' },
-      { key: 'Nutzung',    val: 'Wohnen · Büro · Logistik' },
-      { key: 'Lage',       val: 'Berlin & deutsche A- und B-Städte' },
-      { key: 'Status',     val: 'mit oder ohne Planungsrecht' },
-      { key: 'Grundstück', val: 'Entwicklungsgrundstücke, Abbruchobjekte, Brachflächen' },
+      { key: 'Volumen', val: 'ab ca. 5.000 m² BGF' },
+      { key: 'Nutzung', val: 'Wohnen · Büro · Logistik' },
+      { key: 'Lage',    val: 'Berlin (Priorität) & deutsche A- und B-Städte' },
+      { key: 'Status',  val: 'mit oder ohne Planungsrecht' },
     ],
   },
   bestand: {
     title: 'Bestandsobjekte',
-    intro: 'Vermietete Wohn- und Gewerbeimmobilien für unser langfristiges Portfolio – wir halten, pflegen und entwickeln Bestand für die nächste Generation.',
+    intro: 'Vermietete Wohn- und Gewerbeimmobilien für unser langfristiges Portfolio – wir halten, verwalten und entwickeln Bestand für die nächste Generation.',
     criteria: [
-      { key: 'Volumen',    val: 'ab ca. 10 Einheiten' },
-      { key: 'Nutzung',    val: 'Wohnen · gemischt · Gewerbe' },
-      { key: 'Lage',       val: 'Berlin & wachstumsstarke Lagen' },
-      { key: 'Zustand',    val: 'gepflegt bis sanierungsbedürftig' },
-      { key: 'Mietsituation', val: 'voll vermietet bevorzugt' },
+      { key: 'Volumen', val: 'ab ca. 10 Einheiten' },
+      { key: 'Nutzung', val: 'Wohnen · gemischt · Gewerbe · Einzelhandel' },
+      { key: 'Lage',    val: 'Berlin & wachstumsstarke Lagen' },
+      { key: 'Zustand', val: 'gepflegt bis sanierungsbedürftig' },
     ],
   },
 }
@@ -390,22 +395,22 @@ export const ankaufProzess = [
   {
     step: '01',
     title: 'Einreichung',
-    body: 'Schicken Sie uns Exposé und Eckdaten – auf Wunsch unter NDA. Maklerfrei oder mit Provision verhandelbar.',
+    body: 'Schicken Sie uns Exposé und Eckdaten – auf Wunsch unter NDA.',
   },
   {
     step: '02',
     title: 'Erstgespräch',
-    body: 'Innerhalb von 48 Stunden melden wir uns mit einer ersten Einschätzung und einem qualifizierten Indikativ.',
+    body: 'Innerhalb von 48 Stunden melden wir uns mit einer qualifizierten ersten Einschätzung.',
   },
   {
     step: '03',
     title: 'LOI & Prüfung',
-    body: 'Bei beiderseitigem Interesse folgt ein verbindliches LOI binnen vier Wochen – inklusive sauberer Due Diligence.',
+    body: 'Bei beiderseitigem Interesse folgt ein konkreter Letter of Intent.',
   },
   {
     step: '04',
     title: 'Abschluss',
-    body: 'Notartermin innerhalb von acht bis zwölf Wochen nach LOI. Zahlung über etablierte Bankhäuser, unkomplizierte Abwicklung.',
+    body: 'Notartermin innerhalb von acht bis zwölf Wochen mit einer unkomplizierten Abwicklung.',
   },
 ]
 

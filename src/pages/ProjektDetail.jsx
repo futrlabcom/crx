@@ -103,7 +103,7 @@ export default function ProjektDetail() {
             { key: 'Nutzung',          val: project.nutzung },
             project.units_residential && { key: 'Wohneinheiten', val: project.units_residential },
             project.units_commercial  && { key: 'Gewerbeeinheiten', val: project.units_commercial },
-            { key: 'Standort',         val: project.address },
+            !project.hide_location && { key: 'Standort', val: project.address },
             project.tenants && project.tenants.length && { key: 'Mieter', val: project.tenants.join(' · '), accent: true },
           ] : [
             { key: 'Nutzung',          val: project.nutzung },
@@ -112,7 +112,7 @@ export default function ProjektDetail() {
             project.wohnungsmix  && { key: 'Wohnungsmix',   val: project.wohnungsmix },
             project.baubeginn    && { key: 'Baubeginn',     val: project.baubeginn },
             project.fertigstellung && { key: 'Fertigstellung', val: project.fertigstellung, accent: true },
-            { key: 'Standort',         val: project.address },
+            !project.hide_location && { key: 'Standort', val: project.address },
             !project.fertigstellung && { key: 'Status',     val: project.status, accent: true },
           ]).filter(Boolean).map((f, i) => (
             <div key={i} className={`px-4 lg:px-8 ${i > 0 ? 'lg:border-l border-white/10' : ''}`}>
@@ -152,14 +152,7 @@ export default function ProjektDetail() {
       </section>
 
       {/* GALLERY */}
-      <section className="bg-cream py-32 lg:py-36 px-8 lg:px-12">
-        <div className="container-crx mb-14">
-          <div className="section-num">— 02 / Galerie</div>
-          <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] mt-3">
-            Architektur, die <em className="text-taupe-500">atmet.</em>
-          </h2>
-        </div>
-
+      <section className="bg-cream py-24 lg:py-32 px-8 lg:px-12">
         <div className="container-crx grid grid-cols-1 lg:grid-cols-6 gap-4">
           {project.gallery.map((img, i) => {
             // Editorial layout: alternating spans
@@ -197,7 +190,8 @@ export default function ProjektDetail() {
         </div>
       </section>
 
-      {/* LOCATION */}
+      {/* LOCATION — versteckt wenn hide_location:true */}
+      {!project.hide_location && (
       <section className="bg-ink text-white py-32 lg:py-36 px-8 lg:px-12 relative overflow-hidden">
         <div
           className="absolute -top-72 -right-72 w-[800px] h-[800px] rounded-full pointer-events-none"
@@ -243,6 +237,7 @@ export default function ProjektDetail() {
           </div>
         </div>
       </section>
+      )}
 
       {/* RELATED */}
       <section className="bg-bone py-32 lg:py-36 px-8 lg:px-12">
