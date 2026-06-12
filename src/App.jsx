@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
-import ThemeSwitcher from './components/ThemeSwitcher'
 import Home from './pages/Home'
 import Unternehmen from './pages/Unternehmen'
 import Projekte from './pages/Projekte'
@@ -34,7 +33,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <ThemeSwitcher />
     </>
   )
 }

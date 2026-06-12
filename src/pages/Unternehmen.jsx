@@ -72,19 +72,19 @@ export default function Unternehmen() {
         <div className="container-crx mb-16">
           <div className="section-num">— 02 / Geschäftsfelder</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mt-3">
-            Sechs Disziplinen, <em className="text-taupe-500">eine Handschrift.</em>
+            Vier Disziplinen, <em className="text-taupe-500">eine Handschrift.</em>
           </h2>
         </div>
 
-        <div className="container-crx grid grid-cols-1 md:grid-cols-3 border-t border-l border-stone-400/20">
+        <div className="container-crx grid grid-cols-1 md:grid-cols-2 border-t border-l border-stone-400/20">
           {services.map(s => (
             <div
               key={s.title}
-              className="p-9 md:p-12 border-r border-b border-stone-400/20 hover:bg-taupe-100/10 transition-colors"
+              className="p-10 md:p-14 lg:p-16 border-r border-b border-stone-400/20 hover:bg-taupe-100/10 transition-colors"
             >
-              <div className="font-display text-sm text-taupe-500 mb-6">{s.num}</div>
-              <h3 className="font-display font-normal text-2xl text-stone-800 mb-4 tracking-tight">{s.title}</h3>
-              <p className="text-sm leading-relaxed text-stone-600">{s.body}</p>
+              <div className="font-display text-sm text-taupe-500 mb-8">{s.num}</div>
+              <h3 className="font-display font-normal text-3xl lg:text-[32px] text-stone-800 mb-5 tracking-tight">{s.title}</h3>
+              <p className="text-base lg:text-lg leading-relaxed text-stone-600 max-w-md">{s.body}</p>
             </div>
           ))}
         </div>
