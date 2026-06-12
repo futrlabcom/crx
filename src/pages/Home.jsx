@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { projects, projectStats, contact } from '../data/projects'
@@ -9,15 +9,58 @@ import logoWhite from '../assets/logo_white.png'
 // Hero plays a chained sequence: walsrode → intro v2 → repeat
 const HERO_VIDEOS = ['/projects/walsrode/hero.mp4', '/hero.mp4']
 
+// Hero rotiert durch 3 Titel/Subline-Varianten alle 5s.
+const HERO_VARIANTS = [
+  {
+    line1: 'Für das,',
+    line2: 'was bleibt.',
+    subtitle: 'Wir entwickeln und halten Immobilien in Berlin und ausgewählten deutschen Städten — gebaut für Generationen, nicht für die nächste Konjunktur.',
+  },
+  {
+    line1: 'Räume,',
+    line2: 'die bleiben.',
+    subtitle: 'Projektentwicklung und Bestandshaltung unter einem Dach. Wir bauen für Jahrzehnte, nicht für den schnellen Verkauf.',
+  },
+  {
+    line1: 'Entwickeln.',
+    line2: 'Halten. Bleiben.',
+    subtitle: 'Mit Projekten in Berlin und ganz Deutschland schaffen wir Bestand, der trägt — wirtschaftlich, ökologisch, städtebaulich.',
+  },
+]
+const HERO_ROTATION_MS = 5000
+
+function prefersReducedMotion() {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+}
+
 export default function Home() {
   // Show top 6 neubau projects on home — uniform clean grid like /projekte
   const showcase = projects.filter(p => p.type === 'neubau').slice(0, 6)
   const [heroPhase, setHeroPhase] = useState(0)
 
+  // Hero title rotation
+  const [variantIdx, setVariantIdx] = useState(0)
+  const [hoverPaused, setHoverPaused] = useState(false)
+
+  useEffect(() => {
+    if (prefersReducedMotion() || hoverPaused) return
+    const id = setInterval(() => {
+      setVariantIdx(i => (i + 1) % HERO_VARIANTS.length)
+    }, HERO_ROTATION_MS)
+    return () => clearInterval(id)
+  }, [hoverPaused])
+
+  const variant = HERO_VARIANTS[variantIdx]
+
   return (
     <>
       {/* ─── 1 · HERO ──────────────────────────────────────────────── */}
-      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-center">
+      <section
+        className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-center"
+        onMouseEnter={() => setHoverPaused(true)}
+        onMouseLeave={() => setHoverPaused(false)}
+      >
         <video
           key={heroPhase}
           src={HERO_VIDEOS[heroPhase]}
@@ -28,6 +71,7 @@ export default function Home() {
           onEnded={() => setHeroPhase(p => (p + 1) % HERO_VIDEOS.length)}
           className="absolute inset-0 w-full h-full object-cover"
         />
+        {/* Vertikaler Scrim — oben/unten dunkel */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -35,30 +79,52 @@ export default function Home() {
               'linear-gradient(180deg, rgba(10,9,7,0.55) 0%, rgba(10,9,7,0.3) 35%, rgba(10,9,7,0.9) 100%)',
           }}
         />
+        {/* Horizontaler Scrim — links dunkel für Titel-Lesbarkeit */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.30) 45%, rgba(0,0,0,0) 75%)',
+          }}
+        />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
 
         <div className="container-crx px-8 lg:px-12 pb-24 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-20 items-end relative z-10 w-full">
-          <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.25 }}
-              className="display-h1 text-6xl md:text-8xl lg:text-[104px]"
+          {/* Titel — rotiert. min-height verhindert Layout-Shift */}
+          <div className="relative min-h-[14rem] sm:min-h-[18rem] lg:min-h-[20rem]">
+            <h1
+              key={`title-${variantIdx}`}
+              className="font-display leading-[0.95] motion-safe:animate-fade-up"
+              style={{
+                fontSize: 'clamp(3.5rem, 7vw, 7.5rem)',
+                fontWeight: 600,
+                letterSpacing: '-0.03em',
+                animationDuration: '0.6s',
+              }}
             >
-              Für das,<br />
-              <em className="text-taupe-100 font-light">was bleibt.</em>
-            </motion.h1>
+              {variant.line1}<br />
+              <em className="not-italic text-taupe-100" style={{ fontWeight: 600 }}>
+                {variant.line2}
+              </em>
+            </h1>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
-            className="pb-3"
-          >
-            <p className="text-base leading-relaxed text-white/70 max-w-sm mb-9">
-              Wir entwickeln Wohn-, Büro- und Logistikimmobilien – kompromisslos in Qualität, ruhig in der Geste.
-            </p>
+          <div className="pb-3">
+            {/* Subtitle — rotiert synchron. min-height verhindert Shift */}
+            <div className="relative min-h-[7rem] mb-9">
+              <p
+                key={`sub-${variantIdx}`}
+                className="leading-relaxed text-white/85 max-w-[32ch] motion-safe:animate-fade-up"
+                style={{
+                  fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
+                  animationDuration: '0.6s',
+                }}
+              >
+                {variant.subtitle}
+              </p>
+            </div>
+
+            {/* Button — statisch, rotiert nicht mit */}
             <Link
               to="/projekte"
               className="inline-flex items-center gap-3.5 px-7 py-4 border border-white/25 hover:bg-taupe-500 hover:border-taupe-500 text-white text-xs uppercase tracking-widest transition-all duration-300 group"
@@ -66,7 +132,24 @@ export default function Home() {
               Unsere Projekte
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
-          </motion.div>
+
+            {/* Slider-Dots (dezent) */}
+            <div className="flex items-center gap-2 mt-8" role="tablist" aria-label="Hero-Variante wählen">
+              {HERO_VARIANTS.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === variantIdx}
+                  aria-label={`Variante ${i + 1}`}
+                  onClick={() => setVariantIdx(i)}
+                  className={`h-px transition-all duration-500 ${
+                    i === variantIdx ? 'w-8 bg-taupe-100' : 'w-5 bg-white/30 hover:bg-white/60'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.3em] text-white/35">
@@ -113,7 +196,7 @@ export default function Home() {
               Ausgewählte <em className="text-taupe-500">Projekte.</em>
             </h2>
             <p className="text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl">
-              Zehn Vorhaben in drei Städten, über 223.000 m² Bruttogeschossfläche – ein Auszug aus dem Portfolio, das wir entwickeln und halten.
+              Elf Vorhaben in vier Städten, über 235.000 m² Bruttogeschossfläche – ein Auszug aus dem Portfolio, das wir entwickeln und halten.
             </p>
           </div>
           <Link
