@@ -61,7 +61,7 @@ export default function PageHero({
             {titleLine2 && (
               <>
                 <br />
-                <em className="not-italic text-taupe-100" style={{ fontWeight: 600 }}>
+                <em className="not-italic text-taupe-100" style={{ fontWeight: 300 }}>
                   {titleLine2}
                 </em>
               </>

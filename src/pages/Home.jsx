@@ -100,7 +100,7 @@ export default function Home() {
               }}
             >
               {variant.line1}<br />
-              <em className="not-italic text-taupe-100" style={{ fontWeight: 600 }}>
+              <em className="not-italic text-taupe-100" style={{ fontWeight: 300 }}>
                 {variant.line2}
               </em>
             </h1>
