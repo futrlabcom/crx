@@ -2,13 +2,19 @@ import { Link } from 'react-router-dom'
 import { services } from '../data/projects'
 import StatsBar from '../components/StatsBar'
 import PartnerLogos from '../components/PartnerLogos'
+import PageHero from '../components/PageHero'
 import ruppmann from '../assets/christoph_ruppmann.png'
 
 export default function Unternehmen() {
   return (
     <>
       {/* PAGE HERO */}
-      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20">
+      <PageHero
+        breadcrumb="CRX / Unternehmen"
+        titleLine1="Aus Berlin."
+        titleLine2="Für das, was bleibt."
+        subtitle="Zehn Jahre Projektentwicklung – mit der Geduld eines Bauherrn und der Disziplin eines Investors."
+      >
         <video
           src="/unternehmen.mp4"
           poster="/unternehmen-poster.png"
@@ -27,19 +33,7 @@ export default function Unternehmen() {
           }}
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
-        <div className="container-crx relative z-10">
-          <div className="text-xs uppercase tracking-widest text-white/40 mb-6">
-            CRX <span className="text-taupe-100">/</span> Unternehmen
-          </div>
-          <h1 className="display-h1 text-6xl md:text-8xl lg:text-[120px]">
-            Aus Berlin.<br />
-            <em className="text-taupe-100 font-light">Für das, was bleibt.</em>
-          </h1>
-          <div className="font-display text-xl md:text-2xl text-white/70 mt-6 max-w-xl">
-            Zehn Jahre Projektentwicklung – mit der Geduld eines Bauherrn und der Disziplin eines Investors.
-          </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* INTRO */}
       <section className="bg-bone py-32 lg:py-36 px-8 lg:px-12">

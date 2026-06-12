@@ -3,6 +3,7 @@ import { projects } from '../data/projects'
 import { Link } from 'react-router-dom'
 import AnkaufBlock from '../components/AnkaufBlock'
 import ProjectMedia from '../components/ProjectMedia'
+import PageHero from '../components/PageHero'
 
 // Filter springt zu den jeweiligen Anker-Sektionen statt das Grid zu filtern
 const FILTERS = [
@@ -90,7 +91,24 @@ export default function Projekte() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20">
+      <PageHero
+        breadcrumb="CRX / Projekte"
+        titleLine1="Unsere"
+        titleLine2="Projekte."
+        rightContent={
+          <div className="lg:text-right">
+            <div
+              className="font-display font-light text-taupe-100 leading-none tracking-tight"
+              style={{ fontSize: 'clamp(2.5rem, 4.5vw, 4.5rem)' }}
+            >
+              {String(projects.length).padStart(2, '0')}
+            </div>
+            <div className="text-[10px] uppercase tracking-widest text-white/50 mt-2">
+              Projekte gelistet
+            </div>
+          </div>
+        }
+      >
         <img
           src="/heroes/projekte.jpg"
           alt=""
@@ -104,26 +122,7 @@ export default function Projekte() {
           }}
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
-        <div className="container-crx relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-end">
-          <div>
-            <div className="text-xs uppercase tracking-widest text-white/40 mb-6">
-              CRX <span className="text-taupe-100">/</span> Projekte
-            </div>
-            <h1 className="display-h1 text-6xl md:text-8xl lg:text-[120px]">
-              Unsere<br />
-              <em className="text-taupe-100 font-light">Projekte.</em>
-            </h1>
-          </div>
-          <div className="pb-3 md:text-right">
-            <div className="font-display font-light text-6xl md:text-7xl text-taupe-100 leading-none tracking-tight">
-              {String(projects.length).padStart(2, '0')}
-            </div>
-            <div className="text-[10px] uppercase tracking-widest text-white/50 mt-2">
-              Projekte gelistet
-            </div>
-          </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* FILTER — springt zu Anker-Sektion */}
       <div className="bg-cream border-b border-stone-400/15 px-8 lg:px-12 py-6 sticky top-0 z-30 backdrop-blur-sm">

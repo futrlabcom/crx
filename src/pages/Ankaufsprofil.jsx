@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
 import { ankaufProfile, ankaufProzess, contact } from '../data/projects'
+import PageHero from '../components/PageHero'
 
 export default function Ankaufsprofil() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20">
+      <PageHero
+        breadcrumb="CRX / Ankaufsprofil"
+        titleLine1="Was wir"
+        titleLine2="suchen."
+        subtitle="CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und vermietete Bestandsobjekte – langfristig, ohne Umwege, mit klarem Profil."
+      >
         <img
           src="/heroes/ankaufsprofil.png"
           alt=""
@@ -19,23 +25,7 @@ export default function Ankaufsprofil() {
           }}
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
-
-        <div className="container-crx relative z-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-20 items-end">
-          <div>
-            <div className="text-xs uppercase tracking-widest text-white/40 mb-6">
-              CRX <span className="text-taupe-100 mx-2">/</span> Ankaufsprofil
-            </div>
-            <h1 className="display-h1 text-5xl md:text-7xl lg:text-[108px]">
-              Was wir <em className="text-taupe-100 font-light">suchen.</em>
-            </h1>
-          </div>
-          <div className="pb-3">
-            <p className="text-lg leading-relaxed text-white/70 max-w-md">
-              CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und vermietete Bestandsobjekte – langfristig, ohne Umwege, mit klarem Profil.
-            </p>
-          </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* PROFILE CARDS — Neubau / Bestand */}
       <section className="bg-bone py-24 lg:py-32 px-8 lg:px-12">

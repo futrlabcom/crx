@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
 import { investments, projectStats, contact } from '../data/projects'
+import PageHero from '../components/PageHero'
 
 export default function Investments() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20">
+      <PageHero
+        breadcrumb="CRX / Investments"
+        titleLine1="Investments,"
+        titleLine2="die tragen."
+        subtitle="Ihr Partner für visionäre und ertragsreiche Investmentmöglichkeiten – mit Markterfahrung, klarem Profil und der Geduld, die langfristige Werte verlangen."
+      >
         <img
           src="/investments/hero.jpg"
           alt=""
@@ -19,24 +25,7 @@ export default function Investments() {
           }}
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
-
-        <div className="container-crx relative z-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-20 items-end">
-          <div>
-            <div className="text-xs uppercase tracking-widest text-white/40 mb-6">
-              CRX <span className="text-taupe-100 mx-2">/</span> Investments
-            </div>
-            <h1 className="display-h1 text-6xl md:text-8xl lg:text-[120px]">
-              Investments,<br />
-              <em className="text-taupe-100 font-light">die tragen.</em>
-            </h1>
-          </div>
-          <div className="pb-3">
-            <p className="text-lg leading-relaxed text-white/70 max-w-md">
-              Ihr Partner für visionäre und ertragsreiche Investmentmöglichkeiten – mit Markterfahrung, klarem Profil und der Geduld, die langfristige Werte verlangen.
-            </p>
-          </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* INTRO */}
       <section className="bg-bone py-24 lg:py-32 px-8 lg:px-12">

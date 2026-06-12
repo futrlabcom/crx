@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <>
       {/* ─── 1 · HERO ──────────────────────────────────────────────── */}
-      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex items-center">
+      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex flex-col">
         <video
           key={heroPhase}
           src={HERO_VIDEOS[heroPhase]}
@@ -84,31 +84,33 @@ export default function Home() {
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
 
-        <div className="container-crx px-8 lg:px-12 relative z-10 w-full text-center flex flex-col items-center">
+        {/* Content — linksbündig, vertikal mittig */}
+        <div className="container-crx px-8 lg:px-12 relative z-10 w-full my-auto">
           {/* Titel — rotiert. min-height verhindert Layout-Shift */}
-          <div className="relative min-h-[12rem] sm:min-h-[15rem] lg:min-h-[18rem] flex items-center justify-center w-full">
+          <div className="relative min-h-[12rem] sm:min-h-[15rem] lg:min-h-[16rem]">
             <h1
               key={`title-${variantIdx}`}
-              className="font-display leading-[0.95] motion-safe:animate-fade-up"
+              className="font-display motion-safe:animate-fade-up"
               style={{
                 fontSize: 'clamp(3.5rem, 7vw, 7.5rem)',
-                fontWeight: 300,
-                letterSpacing: '-0.025em',
+                fontWeight: 600,
+                lineHeight: 0.95,
+                letterSpacing: '-0.03em',
                 animationDuration: '0.6s',
               }}
             >
               {variant.line1}<br />
-              <em className="not-italic text-taupe-100" style={{ fontWeight: 300 }}>
+              <em className="not-italic text-taupe-100" style={{ fontWeight: 600 }}>
                 {variant.line2}
               </em>
             </h1>
           </div>
 
-          {/* Subtitle — rotiert synchron. min-height verhindert Shift */}
-          <div className="relative min-h-[5.5rem] mt-6 mb-9 w-full flex justify-center">
+          {/* Subtitle — rotiert synchron */}
+          <div className="relative min-h-[5.5rem] mt-6 mb-9 max-w-[52ch]">
             <p
               key={`sub-${variantIdx}`}
-              className="leading-relaxed text-white/85 max-w-[52ch] motion-safe:animate-fade-up"
+              className="leading-relaxed text-white/85 motion-safe:animate-fade-up"
               style={{
                 fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
                 fontWeight: 300,
@@ -119,7 +121,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Button — statisch, rotiert nicht mit */}
+          {/* Button — statisch */}
           <Link
             to="/projekte"
             className="inline-flex items-center gap-3.5 px-7 py-4 border border-white/25 hover:bg-taupe-500 hover:border-taupe-500 text-white text-xs uppercase tracking-widest transition-all duration-300 group"
@@ -128,7 +130,7 @@ export default function Home() {
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
 
-          {/* Slider-Dots (dezent) */}
+          {/* Slider-Dots */}
           <div className="flex items-center gap-2 mt-10" role="tablist" aria-label="Hero-Variante wählen">
             {HERO_VARIANTS.map((_, i) => (
               <button
