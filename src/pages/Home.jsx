@@ -85,12 +85,12 @@ export default function Home() {
         {/* Content — linksbündig, vertikal mittig im Hero, klarer Abstand zum Nav */}
         <div className="container-crx px-8 lg:px-12 relative z-10 w-full pt-24 lg:pt-32">
           {/* Titel — rotiert. min-height knapp an realer Titelhöhe (2 Zeilen) */}
-          <div className="relative min-h-[8.5rem] sm:min-h-[11rem] lg:min-h-[14rem]">
+          <div className="relative min-h-[7rem] sm:min-h-[9rem] lg:min-h-[12rem]">
             <h1
               key={`title-${variantIdx}`}
               className="font-display motion-safe:animate-fade-up"
               style={{
-                fontSize: 'clamp(4.25rem, 8.5vw, 9rem)',
+                fontSize: 'clamp(3.5rem, 7vw, 7rem)',
                 fontWeight: 600,
                 lineHeight: 0.95,
                 letterSpacing: '-0.03em',
