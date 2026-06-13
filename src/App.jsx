@@ -8,6 +8,8 @@ import Projekte from './pages/Projekte'
 import ProjektDetail from './pages/ProjektDetail'
 import Ankaufsprofil from './pages/Ankaufsprofil'
 import Investments from './pages/Investments'
+import Impressum from './pages/Impressum'
+import Datenschutz from './pages/Datenschutz'
 import Fonts from './pages/Fonts'
 
 function ScrollToTop() {
@@ -29,6 +31,8 @@ export default function App() {
           <Route path="/projekte/:slug" element={<ProjektDetail />} />
           <Route path="/ankaufsprofil" element={<Ankaufsprofil />} />
           <Route path="/investments" element={<Investments />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/fonts" element={<Fonts />} />
         </Routes>
       </main>

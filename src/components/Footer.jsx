@@ -33,8 +33,8 @@ export default function Footer() {
 
           <div>
             <h4 className="text-white text-xs uppercase tracking-widest mb-5 font-medium">Rechtliches</h4>
-            <a href="/impressum" className="block py-1.5 hover:text-taupe-100 transition-colors">Impressum</a>
-            <a href="/datenschutz" className="block py-1.5 hover:text-taupe-100 transition-colors">Datenschutz</a>
+            <Link to="/impressum" className="block py-1.5 hover:text-taupe-100 transition-colors">Impressum</Link>
+            <Link to="/datenschutz" className="block py-1.5 hover:text-taupe-100 transition-colors">Datenschutz</Link>
           </div>
         </div>
 

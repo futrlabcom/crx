@@ -353,10 +353,10 @@ export const partners = [
   { name: 'TEN',         logo: '/partners/ten.png'       },
   { name: 'Keller',      logo: '/partners/keller.png'    },
   { name: 'ABR',         logo: '/partners/abr.png'       },
-  // Neu — Logos folgen, Platzhalter-Slots aktiv:
   { name: 'Greystar',    logo: '/partners/greystar.png'  },
   { name: 'Berlinovo',   logo: '/partners/berlinovo.png' },
-  { name: 'Land Berlin', logo: '/partners/land-berlin.png' },
+  // Land Berlin vorerst raus (12.06.2026) — wieder aktivieren wenn freigegeben:
+  // { name: 'Land Berlin', logo: '/partners/land-berlin.png' },
 ]
 
 export const ankaufKriterien = [

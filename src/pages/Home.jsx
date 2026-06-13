@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <>
       {/* ─── 1 · HERO ──────────────────────────────────────────────── */}
-      <section className="relative min-h-[520px] h-[70vh] bg-ink text-white overflow-hidden flex flex-col">
+      <section className="relative min-h-[640px] h-[78vh] bg-ink text-white overflow-hidden flex flex-col justify-center">
         <video
           src={HERO_VIDEO}
           autoPlay
@@ -82,15 +82,15 @@ export default function Home() {
         />
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
 
-        {/* Content — linksbündig, vertikal mittig */}
-        <div className="container-crx px-8 lg:px-12 relative z-10 w-full my-auto">
-          {/* Titel — rotiert. min-height verhindert Layout-Shift */}
-          <div className="relative min-h-[12rem] sm:min-h-[15rem] lg:min-h-[16rem]">
+        {/* Content — linksbündig, vertikal mittig im Hero, klarer Abstand zum Nav */}
+        <div className="container-crx px-8 lg:px-12 relative z-10 w-full pt-24 lg:pt-32">
+          {/* Titel — rotiert. min-height knapp an realer Titelhöhe (2 Zeilen) */}
+          <div className="relative min-h-[8.5rem] sm:min-h-[11rem] lg:min-h-[14rem]">
             <h1
               key={`title-${variantIdx}`}
               className="font-display motion-safe:animate-fade-up"
               style={{
-                fontSize: 'clamp(3.5rem, 7vw, 7.5rem)',
+                fontSize: 'clamp(4.25rem, 8.5vw, 9rem)',
                 fontWeight: 600,
                 lineHeight: 0.95,
                 letterSpacing: '-0.03em',
@@ -104,8 +104,8 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Subtitle — rotiert synchron */}
-          <div className="relative min-h-[5.5rem] mt-6 mb-9 max-w-[52ch]">
+          {/* Subtitle — rotiert synchron, eng am Titel */}
+          <div className="relative min-h-[5rem] mt-2 lg:mt-3 mb-9 max-w-[52ch]">
             <p
               key={`sub-${variantIdx}`}
               className="leading-relaxed text-white/85 motion-safe:animate-fade-up"
