@@ -8,8 +8,16 @@ import logoWhite from '../assets/logo_white.png'
 
 // Hero-Slideshow — 3 Slides synchron (Video + Slogan), Rotation siehe useEffect unten.
 
-// Hero rotiert durch 3 Slides (Video + Slogan) alle ~6s — synchron.
+// Hero rotiert durch 3 Slides (Video + Slogan) alle ~10s — synchron.
+// Reihenfolge: ADK129 → Walsrode → SW122 (Walsrode in der Mitte).
 const HERO_VARIANTS = [
+  {
+    line1: 'Effizient.',
+    line2: 'Nachhaltig.',
+    subtitle: 'Wir planen unsere Gebäude von innen nach außen.',
+    video: '/projects/adk129/hero.mp4',
+    poster: '/projects/adk129/01.jpg',
+  },
   {
     line1: 'Wirtschaftlich denken.',
     line2: 'Partnerschaftlich handeln.',
@@ -23,13 +31,6 @@ const HERO_VARIANTS = [
     subtitle: 'Projektentwicklung und Bestandshaltung unter einem Dach. Wir bauen für die nächsten Generationen.',
     video: '/projects/sw122/hero.mp4',
     poster: '/projects/sw122/01.jpg',
-  },
-  {
-    line1: 'Effizient.',
-    line2: 'Nachhaltig.',
-    subtitle: 'Wir planen unsere Gebäude von innen nach außen.',
-    video: '/projects/adk129/hero.mp4',
-    poster: '/projects/adk129/01.jpg',
   },
 ]
 // Längere Rotation damit Videos (9-11s) fast vollständig laufen können
@@ -71,8 +72,13 @@ function HeroMedia({ variant }) {
 }
 
 export default function Home() {
-  // Show top 6 neubau projects on home — uniform clean grid like /projekte
-  const showcase = projects.filter(p => p.type === 'neubau').slice(0, 6)
+  // Top 6 Neubau-Projekte — gleiche Sortierung wie /projekte (Frontier ans Ende)
+  const showcase = (() => {
+    const all = projects.filter(p => p.type === 'neubau')
+    const others = all.filter(p => p.slug !== 'frontier')
+    const frontier = all.filter(p => p.slug === 'frontier')
+    return [...others, ...frontier].slice(0, 6)
+  })()
 
   // Hero title rotation — läuft immer (außer reduced-motion)
   const [variantIdx, setVariantIdx] = useState(0)
