@@ -54,10 +54,11 @@ export default function CookieConsent() {
     <div
       role="dialog"
       aria-label="Cookie-Einstellungen"
-      className="fixed inset-x-0 bottom-0 z-[100] bg-ink/97 backdrop-blur-md border-t border-white/10 text-white"
+      className="fixed inset-x-0 bottom-0 z-[100] bg-ink border-t border-white/15 text-white shadow-[0_-8px_40px_rgba(0,0,0,0.5)]"
+      style={{ backgroundColor: '#0A0907' }}
     >
       <div className="container-crx px-8 lg:px-12 py-6 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-10">
-        <p className="text-sm leading-relaxed text-white/80 max-w-2xl">
+        <p className="text-sm leading-relaxed text-white/90 max-w-2xl">
           Wir verwenden Cookies, um die Nutzung unserer Website zu analysieren und zu verbessern. Sie entscheiden, ob Sie dem zustimmen.{' '}
           <Link to="/datenschutz" className="text-taupe-100 underline underline-offset-2 hover:text-white transition-colors">
             Mehr in der Datenschutzerklärung
