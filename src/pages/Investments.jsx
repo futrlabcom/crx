@@ -10,7 +10,6 @@ export default function Investments() {
         breadcrumb="CRX / Investments"
         titleLine1="Investments,"
         titleLine2="die tragen."
-        subtitle="Ihr Partner für visionäre und ertragsreiche Investmentmöglichkeiten – mit Markterfahrung, klarem Profil und der Geduld, die langfristige Werte verlangen."
       >
         <img
           src="/investments/hero.jpg"
@@ -41,7 +40,7 @@ export default function Investments() {
               CRX Real Estate richtet sich an Unternehmer, die nicht auf die nächste Konjunktur, sondern auf das nächste Jahrzehnt blicken. Wir verbinden Marktexpertise mit strategischer Disziplin – und mit der Bereitschaft, Kapital strategisch zu investieren.
             </p>
             <p className="text-lg leading-relaxed text-stone-600 max-w-2xl">
-              Unsere drei Investment-Stränge sind Ausdruck unserer Überzeugung: Wer langfristig Wert schafft, muss langfristig denken – in der Entwicklung, dem Bestand und in den Unternehmern der Zukunft.
+              Unsere drei Investment-Stränge sind Ausdruck unserer Überzeugung: Wer langfristig Werte schafft, muss langfristig denken – in der Entwicklung, dem Bestand und in den Unternehmern der Zukunft.
             </p>
           </div>
         </div>
@@ -119,13 +118,13 @@ export default function Investments() {
           <div>
             <div className="section-num">— 04 / Unser Ansatz</div>
             <h2 className="display-h2 text-3xl md:text-4xl lg:text-[44px] mb-6">
-              Nicht der schnellste,<br /><em className="text-taupe-500">der gründlichste.</em>
+              Beteiligungen mit <em className="text-taupe-500">Substanz.</em>
             </h2>
             <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-4 max-w-md">
-              CRX investiert in Projekte und Unternehmen, die wir selbst überzeugend finden. Jede Beteiligung beginnt mit einer einfachen Frage: Würden wir das selbst halten?
+              CRX beteiligt sich an Projekten und Unternehmen mit echter Substanz – an Vorhaben, deren Qualität und Beständigkeit wir aus eigener Erfahrung beurteilen können. Vor jeder Investition steht dieselbe Frage, die wir auch an unsere eigenen Immobilienprojekte stellen: Hat das langfristig Bestand?
             </p>
             <p className="text-base lg:text-lg text-stone-600 leading-relaxed max-w-md">
-              Nur wenn die Antwort Ja lautet, stecken wir Kapital, Zeit und Netzwerk hinein – mit derselben Sorgfalt, mit der wir auch unsere eigenen Immobilienprojekte entwickeln.
+              Erst wenn die Antwort eindeutig ist, engagieren wir uns – mit Kapital, Zeit und Netzwerk und mit der gleichen Sorgfalt, die unsere gesamte Arbeit prägt.
             </p>
           </div>
         </div>
@@ -170,7 +169,7 @@ export default function Investments() {
                 Original Power Coffee
               </h3>
               <p className="text-lg text-stone-600 leading-relaxed mb-5 max-w-2xl">
-                Eine functional Energy-Marke: clean energy ohne Jitters und Crash. Sugar-free, vegan, keto-friendly – konsumierbar als tägliches Ritual statt als Notlösung.
+                Funktionale Energie ohne Nebenwirkungen: anhaltende Wachheit statt Nervosität und Leistungstief. Zuckerfrei, vegan, keto-geeignet – ein tägliches Ritual, keine Notlösung.
               </p>
               <p className="text-lg text-stone-600 leading-relaxed mb-8 max-w-2xl">
                 CRX begleitet das Unternehmen mit Kapital, strategischer Beratung und Netzwerkzugang. Eine Investition in eine Marke, die genauso langfristig denkt wie wir.
