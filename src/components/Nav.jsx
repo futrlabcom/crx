@@ -33,7 +33,7 @@ export default function Nav() {
       >
         <div className="container-crx px-8 lg:px-12 flex justify-between items-center">
           <Link to="/" aria-label="CRX Real Estate Startseite">
-            <img src={logoWhite} alt="CRX Real Estate" className="h-8 w-auto" />
+            <img src={logoWhite} alt="CRX Real Estate" className="h-10 lg:h-12 w-auto" />
           </Link>
 
           <div className="hidden md:flex gap-9 text-xs tracking-wider uppercase">

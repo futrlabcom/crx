@@ -13,7 +13,7 @@ export default function Unternehmen() {
         breadcrumb="CRX / Unternehmen"
         titleLine1="Aus Berlin."
         titleLine2="Für das, was bleibt."
-        subtitle="Zehn Jahre Projektentwicklung – mit der Geduld eines Bauherrn und der Disziplin eines Investors."
+        subtitle="Zehn Jahre Projektentwicklung – mit großer Leidenschaft für Immobilien."
       >
         <video
           src="/unternehmen.mp4"
@@ -49,13 +49,10 @@ export default function Unternehmen() {
               Mit Projekten im Wert von über 750 Millionen Euro vereinen wir Projektentwicklung und Bestandshaltung unter einem Dach. Wir entwickeln nicht nur Neubauten, sondern halten und pflegen Bestandsimmobilien für die nächste Generation.
             </p>
             <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-2xl">
-              Unser Schwerpunkt liegt in Berlin – ergänzt durch ausgewählte Vorhaben in deutschen Großstädten. Bestand ist für uns kein Restposten, sondern Strategie: was wir bauen, soll bei uns bleiben.
+              Unser Schwerpunkt liegt in Berlin – ergänzt durch ausgewählte Vorhaben in überregionalen Standorten.
             </p>
             <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-2xl">
-              Wir entwickeln nicht für die nächste Konjunktur, sondern für die nächsten Jahrzehnte. Nachhaltigkeit ist für uns keine Marketingdisziplin, sondern eine Frage der Bilanz: ökologisch, ökonomisch, städtebaulich.
-            </p>
-            <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-2xl">
-              Was uns von anderen Entwicklern unterscheidet, ist nicht das Tempo. Sondern wie lange unsere Projekte tragen, nachdem das Baugerüst längst abgebaut ist.
+              Was uns von anderen Entwicklern unterscheidet, ist nicht das Tempo, sondern die Zuverlässigkeit.
             </p>
           </div>
         </div>
@@ -66,11 +63,11 @@ export default function Unternehmen() {
         <div className="container-crx mb-16">
           <div className="section-num">— 02 / Geschäftsfelder</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mt-3">
-            Vier Disziplinen, <em className="text-taupe-500">eine Handschrift.</em>
+            Drei Disziplinen, <em className="text-taupe-500">eine Handschrift.</em>
           </h2>
         </div>
 
-        <div className="container-crx grid grid-cols-1 md:grid-cols-2 border-t border-l border-stone-400/20">
+        <div className="container-crx grid grid-cols-1 md:grid-cols-3 border-t border-l border-stone-400/20">
           {services.map(s => (
             <div
               key={s.title}
@@ -88,9 +85,9 @@ export default function Unternehmen() {
       <StatsBar />
 
       {/* RUPPMANN BIO */}
-      <section className="bg-bone py-32 lg:py-36 px-8 lg:px-12">
-        <div className="container-crx grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-stone-400">
+      <section className="bg-bone py-24 lg:py-28 px-8 lg:px-12">
+        <div className="container-crx grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-10 lg:gap-14 items-start">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-stone-400 max-w-md">
             <img
               src={ruppmann}
               alt="Christoph Ruppmann"
@@ -103,15 +100,15 @@ export default function Unternehmen() {
 
           <div>
             <div className="section-num">— 03 / Geschäftsführung</div>
-            <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] mb-3">
+            <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] mb-1">
               Christoph <em className="text-taupe-500">Ruppmann</em>
             </h2>
-            <div className="font-display text-lg text-taupe-500 mb-8">
+            <div className="font-display text-lg text-taupe-500 mb-6">
               Gründer & Geschäftsführer
             </div>
 
             <p className="text-base leading-relaxed text-stone-600 mb-5">
-              Christoph Ruppmann ist seit über 15 Jahren in der Projektentwicklung tätig. Verantwortlich bei Hines steuerte er Vorhaben mit einem Gesamtvolumen von mehr als 500 Millionen Euro. Mit CRX Real Estate baut er seinen Bestand an Neubauimmobilien in Berlin systematisch aus.
+              Christoph Ruppmann ist seit über 15 Jahren in der Projektentwicklung tätig. Verantwortlich bei Hines steuerte er Vorhaben mit einem Gesamtvolumen von mehr als 500 Millionen Euro. Mit CRX Real Estate gründete er sein eigenes Unternehmen und setzt damit seine Leidenschaft für Immobilien fort.
             </p>
 
             {/*
@@ -125,7 +122,7 @@ export default function Unternehmen() {
       {/* PARTNERS */}
       <PartnerLogos
         variant="full"
-        caption="In Kooperation mit renommierten Häusern."
+        caption="In Zusammenarbeit mit renommierten Häusern."
       />
 
       {/* CTA */}

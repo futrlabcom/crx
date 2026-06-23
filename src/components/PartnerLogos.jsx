@@ -53,8 +53,8 @@ export default function PartnerLogos({
 }) {
   const isCompact = variant === 'compact'
   const captionText = caption ?? (isCompact
-    ? 'In Kooperation mit'
-    : 'In Kooperation mit renommierten Häusern.')
+    ? 'In Zusammenarbeit mit'
+    : 'In Zusammenarbeit mit renommierten Häusern.')
 
   if (isCompact) {
     // Duplicate the list for a seamless loop. The track translates
@@ -112,7 +112,7 @@ export default function PartnerLogos({
           )}
           <h3 className="font-display font-light text-3xl text-stone-800 mb-14">
             {captionText.includes('renommierten')
-              ? <>In Kooperation mit <em className="text-taupe-500">renommierten Häusern.</em></>
+              ? <>In Zusammenarbeit mit <em className="text-taupe-500">renommierten Häusern.</em></>
               : captionText}
           </h3>
         </div>

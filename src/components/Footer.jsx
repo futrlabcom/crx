@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container-crx px-8 lg:px-12 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-white/5">
           <div className="md:col-span-1">
-            <img src={logoWhite} alt="CRX Real Estate" className="h-9 w-auto mb-5" />
+            <img src={logoWhite} alt="CRX Real Estate" className="h-11 w-auto mb-5" />
             <p className="leading-relaxed max-w-xs">
               {contact.company}<br />
               {contact.street}<br />

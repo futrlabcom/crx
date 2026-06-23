@@ -38,10 +38,10 @@ export default function Investments() {
           </div>
           <div className="pt-3">
             <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-2xl">
-              CRX Real Estate richtet sich an Investoren, die nicht auf die nächste Konjunktur, sondern auf das nächste Jahrzehnt blicken. Wir verbinden Marktexpertise mit strategischer Disziplin – und mit der Bereitschaft, eigenes Kapital mitzubringen.
+              CRX Real Estate richtet sich an Unternehmer, die nicht auf die nächste Konjunktur, sondern auf das nächste Jahrzehnt blicken. Wir verbinden Marktexpertise mit strategischer Disziplin – und mit der Bereitschaft, Kapital strategisch zu investieren.
             </p>
             <p className="text-lg leading-relaxed text-stone-600 max-w-2xl">
-              Unsere drei Investment-Stränge sind kein Vertriebskatalog, sondern Ausdruck unserer Überzeugung: Wer langfristig Wert schafft, muss langfristig denken – in Bestand, in Entwicklung und in den Unternehmern hinter den Marken, die uns bewegen.
+              Unsere drei Investment-Stränge sind Ausdruck unserer Überzeugung: Wer langfristig Wert schafft, muss langfristig denken – in der Entwicklung, dem Bestand und in den Unternehmern der Zukunft.
             </p>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Investments() {
         <div className="container-crx mb-14 lg:mb-20">
           <div className="section-num">— 02 / Drei Stränge</div>
           <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] max-w-3xl">
-            Bestand, Entwicklung, <em className="text-taupe-500">Unternehmen.</em>
+            Entwicklung, Bestand, <em className="text-taupe-500">Unternehmen.</em>
           </h2>
         </div>
 
@@ -90,9 +90,6 @@ export default function Investments() {
         <div className="container-crx relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-24 items-center">
           <div>
             <div className="section-num !text-taupe-100">— 03 / Track Record</div>
-            <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              Belegt durch <em className="text-taupe-100">Bilanz.</em>
-            </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-6">
             {projectStats.map((s, i) => (
@@ -125,10 +122,10 @@ export default function Investments() {
               Nicht der schnellste,<br /><em className="text-taupe-500">der gründlichste.</em>
             </h2>
             <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-4 max-w-md">
-              Jedes Investment beginnt mit einer harten Frage: Würden wir das selbst halten? Nur wenn die Antwort Ja lautet, gehen wir den nächsten Schritt.
+              CRX investiert in Projekte und Unternehmen, die wir selbst überzeugend finden. Jede Beteiligung beginnt mit einer einfachen Frage: Würden wir das selbst halten?
             </p>
             <p className="text-base lg:text-lg text-stone-600 leading-relaxed max-w-md">
-              Sie können davon ausgehen, dass wir vor Ihrer Investition mehr Zeit in die Due Diligence gesteckt haben als manche Häuser in das gesamte Asset Management nach Closing.
+              Nur wenn die Antwort Ja lautet, stecken wir Kapital, Zeit und Netzwerk hinein – mit derselben Sorgfalt, mit der wir auch unsere eigenen Immobilienprojekte entwickeln.
             </p>
           </div>
         </div>
@@ -173,10 +170,10 @@ export default function Investments() {
                 Original Power Coffee
               </h3>
               <p className="text-lg text-stone-600 leading-relaxed mb-5 max-w-2xl">
-                Eine functional Energy-Marke mit klarem Versprechen: clean energy ohne Jitters und Crash. Sugar-free, vegan, keto-friendly – konsumierbar als tägliches Ritual statt als Notlösung.
+                Eine functional Energy-Marke: clean energy ohne Jitters und Crash. Sugar-free, vegan, keto-friendly – konsumierbar als tägliches Ritual statt als Notlösung.
               </p>
               <p className="text-lg text-stone-600 leading-relaxed mb-8 max-w-2xl">
-                CRX begleitet das Unternehmen mit Kapital, strategischer Beratung und Netzwerkzugang. Eine Investition in eine Marke, die genauso langfristig denkt wie wir – und ein Beleg dafür, dass unser Venture-Strang über Real Estate hinausgeht.
+                CRX begleitet das Unternehmen mit Kapital, strategischer Beratung und Netzwerkzugang. Eine Investition in eine Marke, die genauso langfristig denkt wie wir.
               </p>
               <a
                 href="https://originalpowercoffee.com"

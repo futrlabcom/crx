@@ -10,7 +10,7 @@ export default function Ankaufsprofil() {
         breadcrumb="CRX / Ankaufsprofil"
         titleLine1="Was wir"
         titleLine2="suchen."
-        subtitle="CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und vermietete Bestandsobjekte – langfristig, ohne Umwege, mit klarem Profil."
+        subtitle="CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und Bestandsobjekte – langfristig, ohne Umwege, mit klarem Profil."
       >
         <img
           src="/heroes/ankaufsprofil.png"

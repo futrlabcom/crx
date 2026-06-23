@@ -6,32 +6,68 @@ import ProjectMedia from '../components/ProjectMedia'
 import PartnerLogos from '../components/PartnerLogos'
 import logoWhite from '../assets/logo_white.png'
 
-// Hero spielt nur Walsrode im Loop (CRX-Intro-Video entfernt 12.06.2026)
-const HERO_VIDEO = '/projects/walsrode/hero.mp4'
+// Hero-Slideshow — 3 Slides synchron (Video + Slogan), Rotation siehe useEffect unten.
 
-// Hero rotiert durch 3 Titel/Subline-Varianten alle 5s.
+// Hero rotiert durch 3 Slides (Video + Slogan) alle ~6s — synchron.
 const HERO_VARIANTS = [
   {
-    line1: 'Für das,',
-    line2: 'was bleibt.',
-    subtitle: 'Wir entwickeln und halten Immobilien in Berlin und ausgewählten deutschen Städten — gebaut für Generationen, nicht für die nächste Konjunktur.',
+    line1: 'Wirtschaftlich denken.',
+    line2: 'Partnerschaftlich handeln.',
+    subtitle: 'Wir entwickeln und halten Immobilien in Berlin und ausgewählten deutschen Städten.',
+    video: '/projects/walsrode/hero.mp4',
+    poster: '/projects/walsrode/01.jpg',
   },
   {
     line1: 'Räume,',
     line2: 'die bleiben.',
-    subtitle: 'Projektentwicklung und Bestandshaltung unter einem Dach. Wir bauen für Jahrzehnte, nicht für den schnellen Verkauf.',
+    subtitle: 'Projektentwicklung und Bestandshaltung unter einem Dach. Wir bauen für die nächsten Generationen.',
+    video: '/projects/sw122/hero.mp4',
+    poster: '/projects/sw122/01.jpg',
   },
   {
-    line1: 'Entwickeln.',
-    line2: 'Halten. Bleiben.',
-    subtitle: 'Mit Projekten in Berlin und ganz Deutschland schaffen wir Bestand, der trägt — wirtschaftlich, ökologisch, städtebaulich.',
+    line1: 'Effizient.',
+    line2: 'Nachhaltig.',
+    subtitle: 'Wir planen unsere Gebäude von innen nach außen.',
+    video: '/projects/adk129/hero.mp4',
+    poster: '/projects/adk129/01.jpg',
   },
 ]
-const HERO_ROTATION_MS = 5000
+// Längere Rotation damit Videos (9-11s) fast vollständig laufen können
+// und der Cross-Fade-Übergang nicht mitten in heftiger Kamera-Bewegung hart kappt.
+const HERO_ROTATION_MS = 10000
 
 function prefersReducedMotion() {
   if (typeof window === 'undefined') return false
   return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+}
+
+// Slide-Media: rendert Video, fällt bei Lade-/Codec-Fehler auf das poster
+// (cover-image) zurück. Solange die SW122/ADK129-Videos fehlen, sieht der
+// User dort das Standbild — Storytelling läuft trotzdem dreischrittig.
+function HeroMedia({ variant }) {
+  const [failed, setFailed] = useState(false)
+  if (failed || !variant.video) {
+    return (
+      <img
+        src={variant.poster}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+    )
+  }
+  return (
+    <video
+      src={variant.video}
+      poster={variant.poster}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      onError={() => setFailed(true)}
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+  )
 }
 
 export default function Home() {
@@ -55,15 +91,9 @@ export default function Home() {
     <>
       {/* ─── 1 · HERO ──────────────────────────────────────────────── */}
       <section className="relative min-h-[640px] h-[78vh] bg-ink text-white overflow-hidden flex flex-col justify-center">
-        <video
-          src={HERO_VIDEO}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {/* Slide-Media — wechselt synchron zum Slogan via key={variantIdx}.
+            onError: wenn Video fehlt (SW122/ADK129 noch ausstehend), greift das poster-Bild via fallback-img. */}
+        <HeroMedia key={`media-${variantIdx}`} variant={variant} />
         {/* Vertikaler Scrim — oben/unten dunkel */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -152,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* ─── 2 · PARTNERS (Trust-Anchor) ───────────────────────────── */}
-      <PartnerLogos variant="compact" caption="In Kooperation mit" />
+      <PartnerLogos variant="compact" caption="In Zusammenarbeit mit" />
 
       {/* ─── 3 · ÜBER UNS — Kurz-Preview ───────────────────────────── */}
       <section className="bg-bone py-24 lg:py-32 px-8 lg:px-12">
@@ -165,11 +195,8 @@ export default function Home() {
             </h2>
           </div>
           <div className="pt-3 flex flex-col">
-            <p className="text-lg leading-relaxed text-stone-600 mb-5 max-w-xl">
-              CRX entwickelt und hält. Wir vereinen Projektentwicklung und Bestandshaltung unter einem Dach.
-            </p>
             <p className="text-lg leading-relaxed text-stone-600 mb-8 max-w-xl">
-              Wir entwickeln nicht für die nächste Konjunktur, sondern für die nächsten Jahrzehnte – ökologisch, ökonomisch, städtebaulich.
+              CRX entwickelt und hält Immobilien. Wir vereinen Projektentwicklung und Bestandshaltung unter einem Dach. Langfristig denken, nachhaltig handeln.
             </p>
             <Link
               to="/unternehmen"
@@ -190,7 +217,7 @@ export default function Home() {
               Ausgewählte <em className="text-taupe-500">Projekte.</em>
             </h2>
             <p className="text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl">
-              Elf Vorhaben in vier Städten, über 235.000 m² Bruttogeschossfläche – ein Auszug aus dem Portfolio, das wir entwickeln und halten.
+              Elf Vorhaben in vier Städten, über 235.000 m² Bruttogrundfläche – ein Auszug aus dem Portfolio, das wir entwickeln und halten.
             </p>
           </div>
           <Link
@@ -229,13 +256,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 5 · TRACK RECORD — Zahlen die zählen ─────────────────── */}
+      {/* ─── 5 · TRACK RECORD ─────────────────────────────────────── */}
       <section className="bg-ink text-white py-24 lg:py-28 px-8 lg:px-12 border-t border-white/5">
         <div className="container-crx mb-12 lg:mb-16">
           <div className="section-num !text-taupe-100">— Track Record</div>
-          <h2 className="display-h2 text-3xl md:text-4xl lg:text-[44px] max-w-2xl">
-            Zahlen, die <em className="text-taupe-100">zählen.</em>
-          </h2>
         </div>
         <div className="container-crx grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-6">
           {projectStats.map((s, i) => (
@@ -284,7 +308,7 @@ export default function Home() {
               CRX Real Estate entwickelt und hält. Unser Schwerpunkt liegt in Berlin – ergänzt durch ausgewählte Vorhaben in deutschen Großstädten.
             </p>
             <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-10 max-w-xl">
-              Wir entwickeln nicht für die nächste Konjunktur, sondern für die nächsten Jahrzehnte. Bestand ist für uns kein Restposten, sondern Strategie.
+              Wir entwickeln für die nächsten Generationen.
             </p>
 
             <Link

@@ -84,14 +84,13 @@ export default function ProjektDetail() {
             <div className="font-display font-light text-xl md:text-2xl text-white/75 leading-snug max-w-2xl">
               {project.tagline}
             </div>
-            <div className="md:text-right">
-              <div className="font-display font-light text-5xl text-taupe-100 leading-none">
-                {String(projectIndex + 1).padStart(2, '0')}
+            {!project.hide_location && (
+              <div className="md:text-right">
+                <div className="text-[10px] uppercase tracking-widest text-white/50 mt-2">
+                  {project.location}
+                </div>
               </div>
-              <div className="text-[10px] uppercase tracking-widest text-white/50 mt-2">
-                {project.location}
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
@@ -123,11 +122,12 @@ export default function ProjektDetail() {
         </div>
       </section>
 
-      {/* STORY */}
+      {/* STORY — versteckt wenn description leer (Plaza Weyler, ADK129) */}
+      {project.description && project.description.length > 0 && (
       <section className="bg-bone py-32 lg:py-36 px-8 lg:px-12">
         <div className="container-crx grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24">
           <div>
-            <div className="section-num">— 01 / Vision</div>
+            <div className="section-num">— Vision</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
               {project.title === 'Frontier' ? (
                 <>Eine neue Ära für<br /><em className="text-taupe-500">Neukölln.</em></>
@@ -142,14 +142,11 @@ export default function ProjektDetail() {
                 {para}
               </p>
             ))}
-            {project.pullquote && (
-              <blockquote className="font-display font-light text-2xl md:text-3xl leading-snug text-taupe-700 border-l-2 border-taupe-500 pl-8 py-2 my-10">
-                "{project.pullquote}"
-              </blockquote>
-            )}
+            {/* Pullquote entfernt (Feedback-Runde 2, 12.06.2026) — Daten bleiben in projects.js erhalten falls später gewünscht. */}
           </div>
         </div>
       </section>
+      )}
 
       {/* GALLERY */}
       <section className="bg-cream py-24 lg:py-32 px-8 lg:px-12">
@@ -172,18 +169,11 @@ export default function ProjektDetail() {
                 {img.src && (
                   <img
                     src={img.src}
-                    alt={img.caption}
+                    alt={img.caption || ''}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 )}
-                <div
-                  className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
-                  style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%)' }}
-                />
-                <div className="absolute bottom-4 left-5 font-display text-sm text-white/95">
-                  {img.caption}
-                </div>
               </div>
             )
           })}
@@ -199,7 +189,7 @@ export default function ProjektDetail() {
         />
         <div className="container-crx grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-24 items-center relative z-10">
           <div>
-            <div className="section-num !text-taupe-100">— 03 / Standort</div>
+            <div className="section-num !text-taupe-100">— Standort</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-6">
               {project.title === 'Frontier' ? (
                 <>Grenzallee 100.<br /><em className="text-taupe-100">Neuköllns neue Mitte.</em></>
@@ -243,7 +233,7 @@ export default function ProjektDetail() {
       <section className="bg-bone py-32 lg:py-36 px-8 lg:px-12">
         <div className="container-crx mb-14 flex flex-col md:flex-row justify-between md:items-end gap-6">
           <div>
-            <div className="section-num">— 04 / Weiter erkunden</div>
+            <div className="section-num">— Weiter erkunden</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px] mt-3">
               Verwandte <em className="text-taupe-500">Projekte.</em>
             </h2>
