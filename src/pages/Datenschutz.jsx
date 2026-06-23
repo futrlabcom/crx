@@ -58,6 +58,9 @@ export default function Datenschutz() {
         Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, werden Ihre Angaben (z. B. Name, E-Mail-Adresse, Nachricht) zum Zweck der Bearbeitung Ihrer Anfrage verarbeitet. Für den technischen Versand der über das Formular eingehenden Nachrichten setzen wir einen E-Mail-Versanddienstleister ein. Dabei werden die von Ihnen eingegebenen Daten zum Zweck der Zustellung verarbeitet.
       </p>
       <p>
+        Für den technischen Versand der über das Formular eingehenden Nachrichten nutzen wir den Dienst von Resend, Inc., 2261 Market Street #5039, San Francisco, CA 94114, USA. Dabei werden die von Ihnen eingegebenen Daten zum Zweck der Zustellung verarbeitet. Soweit hierbei Daten in die USA übermittelt werden, stützt sich diese Übermittlung auf die Standardvertragsklauseln der EU-Kommission. Weitere Informationen: <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">https://resend.com/legal/privacy-policy</a>
+      </p>
+      <p>
         Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung vorvertraglicher Anfragen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Die Daten werden gelöscht, sobald sie für die Erreichung des Zwecks ihrer Erhebung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
       </p>
 

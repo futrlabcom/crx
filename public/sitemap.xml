@@ -81,6 +81,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://crx-re.com/kontakt</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://crx-re.com/impressum</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

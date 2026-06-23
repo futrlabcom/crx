@@ -13,6 +13,7 @@ import Investments from './pages/Investments'
 import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
 import Fonts from './pages/Fonts'
+import Kontakt from './pages/Kontakt'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/investments" element={<Investments />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/fonts" element={<Fonts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

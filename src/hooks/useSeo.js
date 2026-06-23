@@ -13,6 +13,7 @@ const ROUTES = {
   '/projekte':      { title: 'Projekte – CRX Real Estate', desc: 'Neubauprojekte und Bestandsobjekte von CRX Real Estate in Berlin und ausgewählten deutschen Städten.' },
   '/investments':   { title: 'Investments – CRX Real Estate', desc: 'Entwicklung, Bestand und Venture Capital – die drei Investment-Stränge von CRX Real Estate.' },
   '/ankaufsprofil': { title: 'Ankaufsprofil – CRX Real Estate', desc: 'CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und Bestandsobjekte in Berlin und wachstumsstarken Lagen.' },
+  '/kontakt':       { title: 'Kontakt – CRX Real Estate', desc: 'Sprechen Sie mit CRX Real Estate. Investoren, Mieter, Partner – wir nehmen uns Zeit für Ihr Anliegen.' },
   '/impressum':     { title: 'Impressum – CRX Real Estate', desc: 'Impressum der CRX Management GmbH, Berlin.' },
   '/datenschutz':   { title: 'Datenschutz – CRX Real Estate', desc: 'Datenschutzerklärung der CRX Management GmbH.' },
 }

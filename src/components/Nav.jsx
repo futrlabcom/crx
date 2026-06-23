@@ -8,7 +8,7 @@ const links = [
   { to: '/projekte',    label: 'Projekte' },
   { to: '/investments', label: 'Investments' },
   { to: '/ankaufsprofil', label: 'Ankaufsprofil' },
-  { to: '#kontakt',     label: 'Kontakt' },
+  { to: '/kontakt',     label: 'Kontakt' },
 ]
 
 export default function Nav() {

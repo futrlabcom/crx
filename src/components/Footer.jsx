@@ -27,7 +27,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-white text-xs uppercase tracking-widest mb-5 font-medium">Kontakt</h4>
-            <a href={`mailto:${contact.email}`} className="block py-1.5 hover:text-taupe-100 transition-colors">{contact.email}</a>
+            <Link to="/kontakt" className="block py-1.5 hover:text-taupe-100 transition-colors">Kontaktformular</Link>
             <a href={`tel:${contact.phoneRaw}`} className="block py-1.5 hover:text-taupe-100 transition-colors">{contact.phone}</a>
           </div>
 
