@@ -110,8 +110,10 @@ export default function Projekte() {
         }
       >
         <img
-          src="/heroes/projekte.jpg"
+          src="/heroes/projekte.webp"
           alt=""
+          fetchpriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div

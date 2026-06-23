@@ -12,8 +12,10 @@ export default function Investments() {
         titleLine2="die tragen."
       >
         <img
-          src="/investments/hero.jpg"
+          src="/investments/hero.webp"
           alt=""
+          fetchpriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -109,7 +111,7 @@ export default function Investments() {
         <div className="container-crx grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
           <div className="relative aspect-[4/3] overflow-hidden bg-sand">
             <img
-              src="/investments/secondary.jpg"
+              src="/investments/secondary.webp"
               alt="CRX Investment Office"
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
@@ -148,7 +150,7 @@ export default function Investments() {
           >
             <div className="aspect-[21/9] lg:aspect-[3/1] relative overflow-hidden">
               <img
-                src="/investments/powercoffee/banner.png"
+                src="/investments/powercoffee/banner.webp"
                 alt="Original Power Coffee"
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"

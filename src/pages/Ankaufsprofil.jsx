@@ -13,8 +13,10 @@ export default function Ankaufsprofil() {
         subtitle="CRX kauft diskret und entscheidet schnell. Wir suchen Entwicklungsgrundstücke und Bestandsobjekte – langfristig, ohne Umwege, mit klarem Profil."
       >
         <img
-          src="/heroes/ankaufsprofil.png"
+          src="/heroes/ankaufsprofil.webp"
           alt=""
+          fetchpriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div

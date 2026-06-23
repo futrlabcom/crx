@@ -63,7 +63,18 @@ export default function Datenschutz() {
 
       <h2>Cookies</h2>
       <p>
-        Diese Website verwendet Cookies und ähnliche Technologien. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Technisch notwendige Cookies werden auf Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs. 1 lit. f DSGVO eingesetzt. Alle übrigen Cookies (z. B. für Statistik oder Marketing) werden nur mit Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO gesetzt. Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen.
+        Diese Website verwendet Cookies und ähnliche Technologien. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Technisch notwendige Cookies werden auf Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs. 1 lit. f DSGVO eingesetzt. Alle übrigen Cookies (z. B. für Statistik oder Marketing) werden nur mit Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO gesetzt. Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen – über den Link „Cookie-Einstellungen" im Footer.
+      </p>
+
+      <h2>Google Analytics</h2>
+      <p>
+        Diese Website nutzt Google Analytics 4, einen Webanalysedienst der Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Irland (bzw. Google LLC, USA). Google Analytics verwendet Cookies, die eine Analyse der Nutzung der Website ermöglichen. Die Verarbeitung dient der Reichweitenanalyse und der Verbesserung unseres Angebots.
+      </p>
+      <p>
+        Die Nutzung von Google Analytics erfolgt ausschließlich auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Ohne Ihre Zustimmung im Cookie-Banner wird Google Analytics nicht geladen und es werden keine Analyse-Cookies gesetzt. Die IP-Anonymisierung ist aktiviert, sodass Ihre IP-Adresse vor der Übertragung gekürzt wird.
+      </p>
+      <p>
+        Bei der Nutzung von Google Analytics kann es zu einer Übermittlung von Daten in die USA kommen. Diese stützt sich auf die Standardvertragsklauseln der EU-Kommission sowie ggf. das EU-US Data Privacy Framework. Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>
       </p>
 
       <h2>Übermittlung von Daten an Dritte und Drittanbieter</h2>

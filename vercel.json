@@ -1,4 +1,13 @@
 {
+  "redirects": [
+    { "source": "/portfolio-item/sw122-berlin", "destination": "/projekte/sw122-berlin", "permanent": true },
+    { "source": "/portfolio-item/adk129-berlin", "destination": "/projekte/adk129-berlin", "permanent": true },
+    { "source": "/portfolio-item/frontier", "destination": "/projekte/frontier", "permanent": true },
+    { "source": "/portfolio-item/logistikzentrum-walsrode", "destination": "/projekte/logistikzentrum-walsrode", "permanent": true },
+    { "source": "/portfolio-item/nk-living", "destination": "/projekte/nk-living", "permanent": true },
+    { "source": "/portfolio-item/cloud-no7", "destination": "/projekte/cloud-no-7", "permanent": true },
+    { "source": "/portfolio-item/(.*)", "destination": "/projekte", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

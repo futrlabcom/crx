@@ -2,6 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
+import CookieConsent from './components/CookieConsent'
+import useSeo from './hooks/useSeo'
 import Home from './pages/Home'
 import Unternehmen from './pages/Unternehmen'
 import Projekte from './pages/Projekte'
@@ -11,6 +13,7 @@ import Investments from './pages/Investments'
 import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
 import Fonts from './pages/Fonts'
+import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -18,10 +21,16 @@ function ScrollToTop() {
   return null
 }
 
+function SeoManager() {
+  useSeo()
+  return null
+}
+
 export default function App() {
   return (
     <>
       <ScrollToTop />
+      <SeoManager />
       <Nav />
       <main>
         <Routes>
@@ -34,9 +43,11 @@ export default function App() {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/fonts" element={<Fonts />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
+      <CookieConsent />
     </>
   )
 }

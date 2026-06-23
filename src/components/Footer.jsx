@@ -35,6 +35,13 @@ export default function Footer() {
             <h4 className="text-white text-xs uppercase tracking-widest mb-5 font-medium">Rechtliches</h4>
             <Link to="/impressum" className="block py-1.5 hover:text-taupe-100 transition-colors">Impressum</Link>
             <Link to="/datenschutz" className="block py-1.5 hover:text-taupe-100 transition-colors">Datenschutz</Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('crx:open-cookie-settings'))}
+              className="block py-1.5 text-left hover:text-taupe-100 transition-colors"
+            >
+              Cookie-Einstellungen
+            </button>
           </div>
         </div>
 

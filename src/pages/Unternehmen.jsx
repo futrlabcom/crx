@@ -17,12 +17,12 @@ export default function Unternehmen() {
       >
         <video
           src="/unternehmen.mp4"
-          poster="/unternehmen-poster.png"
+          poster="/unternehmen-poster.webp"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div

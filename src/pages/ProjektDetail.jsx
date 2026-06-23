@@ -40,7 +40,7 @@ export default function ProjektDetail() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : heroImgSrc && !heroImgFailed && (
@@ -48,6 +48,8 @@ export default function ProjektDetail() {
             src={heroImgSrc}
             alt={project.title}
             onError={() => setHeroImgFailed(true)}
+            fetchpriority="high"
+            decoding="async"
             style={project.heroImageFilter ? { filter: project.heroImageFilter } : undefined}
             className="absolute inset-0 w-full h-full object-cover"
           />

@@ -15,21 +15,21 @@ const HERO_VARIANTS = [
     line2: 'Nachhaltig.',
     subtitle: 'Wir planen unsere Gebäude von innen nach außen.',
     video: '/projects/adk129/hero.mp4',
-    poster: '/projects/adk129/01.jpg',
+    poster: '/projects/adk129/01.webp',
   },
   {
     line1: 'Wirtschaftlich denken.',
     line2: 'Partnerschaftlich handeln.',
     subtitle: 'Wir entwickeln und halten Immobilien in Berlin und ausgewählten deutschen Städten.',
     video: '/projects/walsrode/hero.mp4',
-    poster: '/projects/walsrode/01.jpg',
+    poster: '/projects/walsrode/01.webp',
   },
   {
     line1: 'Räume,',
     line2: 'die bleiben.',
     subtitle: 'Projektentwicklung und Bestandshaltung unter einem Dach. Wir bauen für die nächsten Generationen.',
     video: '/projects/sw122/hero.mp4',
-    poster: '/projects/sw122/01.jpg',
+    poster: '/projects/sw122/01.webp',
   },
 ]
 // Längere Rotation damit Videos (9-11s) fast vollständig laufen können
@@ -63,7 +63,7 @@ function HeroMedia({ variant }) {
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
       onError={() => setFailed(true)}
       className="absolute inset-0 w-full h-full object-cover"
     />
@@ -290,7 +290,7 @@ export default function Home() {
           {/* Berlin-Skyline */}
           <div className="relative aspect-[4/3] overflow-hidden bg-sand">
             <img
-              src="/heroes/unternehmen-preview.png"
+              src="/heroes/unternehmen-preview.webp"
               alt="Berlin – Spree, Berliner Dom und Fernsehturm bei Sonnenuntergang"
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
