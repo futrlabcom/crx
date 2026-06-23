@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { projects, projectStats, contact } from '../data/projects'
 import ProjectMedia from '../components/ProjectMedia'
 import PartnerLogos from '../components/PartnerLogos'
-import logoWhite from '../assets/logo_white.png'
 
 // Hero-Slideshow — 3 Slides synchron (Video + Slogan), Rotation siehe useEffect unten.
 
@@ -288,20 +287,14 @@ export default function Home() {
       {/* ─── 6 · DAS UNTERNEHMEN — Preview ─────────────────────────── */}
       <section className="bg-cream py-24 lg:py-32 px-8 lg:px-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Office-Bild — Platzhalter bis Asset folgt */}
-          <div
-            className="relative aspect-[4/3] overflow-hidden flex items-center justify-center"
-            style={{ background: 'radial-gradient(ellipse at 50% 50%, #2E2A24 0%, #0A0907 75%)' }}
-          >
+          {/* Berlin-Skyline */}
+          <div className="relative aspect-[4/3] overflow-hidden bg-sand">
             <img
-              src={logoWhite}
-              alt=""
-              aria-hidden="true"
-              className="h-12 lg:h-16 w-auto opacity-25"
+              src="/heroes/unternehmen-preview.png"
+              alt="Berlin – Spree, Berliner Dom und Fernsehturm bei Sonnenuntergang"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <span className="absolute bottom-4 left-5 text-[10px] tracking-widest uppercase text-white/40">
-              Office · Bild folgt
-            </span>
           </div>
 
           <div>
