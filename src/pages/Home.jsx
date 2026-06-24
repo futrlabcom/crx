@@ -125,7 +125,7 @@ export default function Home() {
         <div className="absolute inset-0 grid-overlay pointer-events-none opacity-50" />
 
         {/* Content — linksbündig, vertikal mittig im Hero, klarer Abstand zum Nav */}
-        <div className="container-crx px-8 lg:px-12 relative z-10 w-full pt-24 lg:pt-32">
+        <div className="container-crx px-6 sm:px-8 lg:px-12 relative z-10 w-full pt-24 lg:pt-32">
           {/* Titel — rotiert. min-height knapp an realer Titelhöhe (2 Zeilen) */}
           <div className="relative min-h-[7rem] sm:min-h-[9rem] lg:min-h-[12rem]">
             <h1
