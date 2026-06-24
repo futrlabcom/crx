@@ -32,9 +32,12 @@ const HERO_VARIANTS = [
     poster: '/projects/sw122/01.webp',
   },
 ]
-// Längere Rotation damit Videos (9-11s) fast vollständig laufen können
-// und der Cross-Fade-Übergang nicht mitten in heftiger Kamera-Bewegung hart kappt.
-const HERO_ROTATION_MS = 10000
+// Der Slide-Wechsel wird vom Video selbst getriggert (onEnded) — jedes Video
+// läuft also einmal vollständig durch, bevor der nächste Slide kommt.
+// Dieser Timer ist nur ein Sicherheitsnetz, falls 'ended' nie feuert
+// (z. B. Poster-Fallback ohne Video oder Codec-Problem). Länger als das
+// längste Video (~11s), damit er nie ein laufendes Video abschneidet.
+const HERO_FALLBACK_MS = 16000
 
 function prefersReducedMotion() {
   if (typeof window === 'undefined') return false
@@ -44,7 +47,7 @@ function prefersReducedMotion() {
 // Slide-Media: rendert Video, fällt bei Lade-/Codec-Fehler auf das poster
 // (cover-image) zurück. Solange die SW122/ADK129-Videos fehlen, sieht der
 // User dort das Standbild — Storytelling läuft trotzdem dreischrittig.
-function HeroMedia({ variant }) {
+function HeroMedia({ variant, onEnded }) {
   const [failed, setFailed] = useState(false)
   if (failed || !variant.video) {
     return (
@@ -61,9 +64,9 @@ function HeroMedia({ variant }) {
       poster={variant.poster}
       autoPlay
       muted
-      loop
       playsInline
       preload="metadata"
+      onEnded={onEnded}
       onError={() => setFailed(true)}
       className="absolute inset-0 w-full h-full object-cover"
     />
@@ -79,16 +82,16 @@ export default function Home() {
     return [...others, ...frontier].slice(0, 6)
   })()
 
-  // Hero title rotation — läuft immer (außer reduced-motion)
+  // Hero-Slideshow — der Wechsel kommt primär von video.onEnded (Video läuft
+  // einmal ganz durch). Der Timer pro Slide ist nur Sicherheitsnetz.
   const [variantIdx, setVariantIdx] = useState(0)
+  const goNext = () => setVariantIdx(i => (i + 1) % HERO_VARIANTS.length)
 
   useEffect(() => {
     if (prefersReducedMotion()) return
-    const id = setInterval(() => {
-      setVariantIdx(i => (i + 1) % HERO_VARIANTS.length)
-    }, HERO_ROTATION_MS)
-    return () => clearInterval(id)
-  }, [])
+    const id = setTimeout(goNext, HERO_FALLBACK_MS)
+    return () => clearTimeout(id)
+  }, [variantIdx])
 
   const variant = HERO_VARIANTS[variantIdx]
 
@@ -98,7 +101,11 @@ export default function Home() {
       <section className="relative min-h-[640px] h-[78vh] bg-ink text-white overflow-hidden flex flex-col justify-center">
         {/* Slide-Media — wechselt synchron zum Slogan via key={variantIdx}.
             onError: wenn Video fehlt (SW122/ADK129 noch ausstehend), greift das poster-Bild via fallback-img. */}
-        <HeroMedia key={`media-${variantIdx}`} variant={variant} />
+        <HeroMedia
+          key={`media-${variantIdx}`}
+          variant={variant}
+          onEnded={() => { if (!prefersReducedMotion()) goNext() }}
+        />
         {/* Vertikaler Scrim — oben/unten dunkel */}
         <div
           className="absolute inset-0 pointer-events-none"
