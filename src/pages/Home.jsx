@@ -332,7 +332,7 @@ export default function Home() {
             Kontaktiere <em className="text-taupe-100">uns.</em>
           </h2>
           <p className="text-lg leading-relaxed text-white/65 max-w-xl mx-auto">
-            Investoren, Mieter, Partner. Wir nehmen uns Zeit.
+            Investoren, Verkäufer, Mieter, Partner. Wir nehmen uns Zeit.
           </p>
         </div>
 
@@ -349,7 +349,7 @@ export default function Home() {
               Wir antworten.
             </h3>
             <p className="text-sm text-white/55 leading-relaxed mb-8">
-              Investoren, Mieter, Presse, Bewerbungen, Kooperationen – schreiben Sie uns direkt.
+              Investoren, Verkäufer, Mieter, Presse, Bewerbungen, Kooperationen – schreiben Sie uns direkt.
             </p>
             <span className="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-white group-hover:text-taupe-100 transition-colors">
               {contact.email}

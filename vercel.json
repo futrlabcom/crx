@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "crxre.vercel.app" }], "destination": "https://crx-re.com/$1", "permanent": true },
     { "source": "/portfolio-item/sw122-berlin", "destination": "/projekte/sw122-berlin", "permanent": true },
     { "source": "/portfolio-item/adk129-berlin", "destination": "/projekte/adk129-berlin", "permanent": true },
     { "source": "/portfolio-item/frontier", "destination": "/projekte/frontier", "permanent": true },
