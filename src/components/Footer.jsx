@@ -60,7 +60,7 @@ export default function Footer() {
               <img
                 src={futrlabIcon}
                 alt="futrlab – Online KI Agentur Berlin"
-                className="h-3.5 w-auto opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+                className="h-5 w-auto opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
               />
               futrlab.com
               <span className="text-white/30 group-hover:text-taupe-100/70 transition-colors">— Online KI Agentur Berlin</span>
