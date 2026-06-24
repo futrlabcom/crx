@@ -70,18 +70,18 @@ export default function PartnerLogos({
 
         <div className="group relative w-full overflow-hidden">
           <div
-            className="flex items-center gap-16 lg:gap-24 will-change-transform animate-marquee group-hover:[animation-play-state:paused]"
+            className="flex items-center gap-9 lg:gap-24 will-change-transform animate-marquee group-hover:[animation-play-state:paused]"
             style={{ width: 'max-content' }}
           >
             {looped.map((p, i) => (
               <div
                 key={`${p.name}-${i}`}
-                className="shrink-0 flex items-center justify-center opacity-65 hover:opacity-100 transition-opacity duration-300 min-w-[160px] lg:min-w-[200px] h-16 lg:h-24"
+                className="shrink-0 flex items-center justify-center opacity-65 hover:opacity-100 transition-opacity duration-300 min-w-[120px] lg:min-w-[200px] h-24 lg:h-24"
                 title={p.name}
               >
                 <PartnerLogoImg
                   partner={p}
-                  className="h-16 lg:h-24 w-auto max-w-[260px] object-contain"
+                  className="h-24 lg:h-24 w-auto max-w-[200px] object-contain"
                   style={{ filter: 'brightness(0)' }}
                 />
               </div>
