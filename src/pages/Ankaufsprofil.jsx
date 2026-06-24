@@ -114,12 +114,12 @@ export default function Ankaufsprofil() {
             Schicken Sie Exposé oder Eckdaten direkt an unser Team.
           </p>
           <div className="flex justify-center items-center mb-10">
-            <a
-              href={`mailto:${contact.email}?subject=Objekteinreichung`}
+            <Link
+              to="/kontakt"
               className="inline-flex items-center gap-3 px-8 py-4 bg-taupe-500 hover:bg-taupe-700 text-white text-xs uppercase tracking-widest transition-colors"
             >
-              INFO@CRX-RE.COM <span>→</span>
-            </a>
+              Objekt einreichen <span>→</span>
+            </Link>
           </div>
           <Link
             to="/projekte"

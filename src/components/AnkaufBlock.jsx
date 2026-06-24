@@ -54,12 +54,12 @@ export default function AnkaufBlock() {
             Diskretion garantiert. Auf Wunsch unter NDA. Antwort binnen 48 Stunden.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="mailto:info@crx-re.com?subject=Objekteinreichung"
+            <Link
+              to="/kontakt"
               className="inline-flex items-center justify-center gap-3 px-7 py-4 bg-taupe-500 hover:bg-taupe-700 text-white text-xs uppercase tracking-widest transition-colors"
             >
               Objekt einreichen <span>→</span>
-            </a>
+            </Link>
             <Link
               to="/ankaufsprofil"
               className="inline-flex items-center justify-center gap-3 px-7 py-4 border border-white/20 hover:border-taupe-100 hover:text-taupe-100 text-white text-xs uppercase tracking-widest transition-colors"

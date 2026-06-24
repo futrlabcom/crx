@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import logoWhite from '../assets/logo_white.png'
+import futrlabIcon from '../assets/futrlab_icon_white.png'
 import { contact } from '../data/projects'
 
 export default function Footer() {
@@ -47,9 +48,24 @@ export default function Footer() {
 
         <div className="mt-8 flex flex-col md:flex-row justify-between gap-2 text-xs">
           <span>© {new Date().getFullYear()} CRX Real Estate</span>
-          <a href="https://futrlab.com" target="_blank" rel="noopener noreferrer" className="hover:text-taupe-100 transition-colors">
-            realized by futrlab.com
-          </a>
+          <span className="inline-flex items-center gap-1.5 flex-wrap">
+            realized by
+            <a
+              href="https://futrlab.com"
+              target="_blank"
+              rel="noopener"
+              title="futrlab – Online KI Agentur Berlin"
+              className="group inline-flex items-center gap-1.5 hover:text-taupe-100 transition-colors"
+            >
+              <img
+                src={futrlabIcon}
+                alt="futrlab – Online KI Agentur Berlin"
+                className="h-3.5 w-auto opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+              />
+              futrlab.com
+              <span className="text-white/30 group-hover:text-taupe-100/70 transition-colors">— Online KI Agentur Berlin</span>
+            </a>
+          </span>
         </div>
       </div>
     </footer>

@@ -338,8 +338,8 @@ export default function Home() {
 
         <div className="container-crx relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* Card 1 — Allgemeiner Kontakt */}
-          <a
-            href={`mailto:${contact.email}`}
+          <Link
+            to="/kontakt"
             className="group block bg-char border border-white/10 hover:border-taupe-300 hover:bg-white/[0.04] p-8 lg:p-10 transition-colors duration-300"
           >
             <div className="text-[10px] tracking-widest uppercase text-taupe-100 mb-5">
@@ -352,10 +352,10 @@ export default function Home() {
               Investoren, Verkäufer, Mieter, Presse, Bewerbungen, Kooperationen – schreiben Sie uns direkt.
             </p>
             <span className="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-white group-hover:text-taupe-100 transition-colors">
-              {contact.email}
+              Anfrage senden
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
-          </a>
+          </Link>
 
           {/* Card 2 — Ankaufsprofil */}
           <Link

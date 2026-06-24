@@ -15,7 +15,7 @@ export default function Datenschutz() {
         {contact.street}<br />
         {contact.city}<br />
         Telefon: <a href={`tel:${contact.phoneRaw}`}>{contact.phone}</a><br />
-        E-Mail: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        E-Mail: {contact.email}
       </address>
 
       <h2>Arten der verarbeiteten Daten</h2>

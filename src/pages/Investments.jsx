@@ -221,12 +221,12 @@ export default function Investments() {
             Wir sprechen ausschließlich mit Investoren, die wir kennen oder verlässlich eingeführt bekommen. Diskretion ist keine Marketingdisziplin, sondern Voraussetzung.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href={`mailto:${contact.email}?subject=Investment-Anfrage`}
+            <Link
+              to="/kontakt"
               className="inline-flex items-center gap-3 px-8 py-4 bg-taupe-500 hover:bg-taupe-700 text-white text-xs uppercase tracking-widest transition-colors"
             >
-              {contact.email} <span>→</span>
-            </a>
+              Anfrage senden <span>→</span>
+            </Link>
             <a
               href={`tel:${contact.phoneRaw}`}
               className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 hover:border-taupe-100 hover:text-taupe-100 text-white text-xs uppercase tracking-widest transition-colors"

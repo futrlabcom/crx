@@ -134,7 +134,7 @@ export default function ContactForm() {
       {status === 'error' && (
         <p className="text-sm text-red-700/90 leading-relaxed">
           Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie direkt an{' '}
-          <a href="mailto:info@crx-re.com" className="underline underline-offset-2">info@crx-re.com</a>.
+          <span className="underline underline-offset-2">info@crx-re.com</span>.
         </p>
       )}
 

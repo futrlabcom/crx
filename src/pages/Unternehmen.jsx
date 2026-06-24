@@ -140,12 +140,12 @@ export default function Unternehmen() {
           <p className="text-lg leading-relaxed text-white/65 mb-10">
             Ob Grundstück, Bestandsobjekt oder Investmentopportunität – wir sprechen gerne mit Ihnen. Diskret und auf Augenhöhe.
           </p>
-          <a
-            href="mailto:info@crx-re.com"
+          <Link
+            to="/kontakt"
             className="inline-flex items-center gap-3 px-8 py-4 bg-taupe-500 hover:bg-taupe-700 text-white text-xs uppercase tracking-widest transition-colors"
           >
             Kontakt aufnehmen →
-          </a>
+          </Link>
         </div>
       </section>
     </>
