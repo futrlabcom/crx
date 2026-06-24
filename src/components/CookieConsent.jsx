@@ -57,25 +57,25 @@ export default function CookieConsent() {
       className="fixed inset-x-0 bottom-0 z-[100] bg-ink border-t border-white/15 text-white shadow-[0_-8px_40px_rgba(0,0,0,0.5)]"
       style={{ backgroundColor: '#0A0907' }}
     >
-      <div className="container-crx px-8 lg:px-12 py-6 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-10">
+      <div className="container-crx px-6 sm:px-8 lg:px-12 py-5 lg:py-6 flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-10">
         <p className="text-sm leading-relaxed text-white/90 max-w-2xl">
           Wir verwenden Cookies, um die Nutzung unserer Website zu analysieren und zu verbessern. Sie entscheiden, ob Sie dem zustimmen.{' '}
           <Link to="/datenschutz" className="text-taupe-100 underline underline-offset-2 hover:text-white transition-colors">
             Mehr in der Datenschutzerklärung
           </Link>
         </p>
-        <div className="flex items-center gap-3 lg:ml-auto shrink-0">
+        <div className="flex flex-col sm:flex-row gap-3 lg:ml-auto shrink-0">
           <button
             type="button"
             onClick={decline}
-            className="px-6 py-3 border border-white/25 hover:border-white/60 text-white text-xs uppercase tracking-widest transition-colors"
+            className="w-full sm:w-auto px-6 py-3.5 border border-white/25 hover:border-white/60 text-white text-xs uppercase tracking-widest transition-colors"
           >
             Ablehnen
           </button>
           <button
             type="button"
             onClick={accept}
-            className="px-6 py-3 bg-taupe-500 hover:bg-taupe-700 text-white text-xs uppercase tracking-widest transition-colors"
+            className="w-full sm:w-auto px-6 py-3.5 bg-taupe-500 hover:bg-taupe-700 text-white text-xs uppercase tracking-widest transition-colors"
           >
             Akzeptieren
           </button>

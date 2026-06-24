@@ -19,7 +19,7 @@ export default function ProjektDetail() {
     <>
       {/* HERO */}
       <section
-        className="relative min-h-[520px] h-[70vh] text-white overflow-hidden flex items-end px-8 lg:px-12 pb-20"
+        className="relative min-h-[560px] md:h-[70vh] md:min-h-[520px] text-white overflow-hidden flex items-start md:items-end px-6 sm:px-8 lg:px-12 pt-28 pb-14 md:pt-0 md:pb-20"
         style={{ background: project.heroGradient }}
       >
         {showHeroPlaceholder && (
@@ -78,7 +78,7 @@ export default function ProjektDetail() {
               : project.status + (project.year ? ` · Fertigstellung ${project.year}` : '')}
           </span>
 
-          <h1 className="display-h1 text-7xl md:text-9xl lg:text-[180px] leading-[0.88] mb-8">
+          <h1 lang="de" className="display-h1 text-6xl sm:text-7xl md:text-9xl lg:text-[180px] leading-[0.88] mb-8 break-words hyphens-auto">
             {project.title}
           </h1>
 
@@ -99,7 +99,7 @@ export default function ProjektDetail() {
 
       {/* FACTS BAR */}
       <section className="bg-char text-white py-8 px-8 lg:px-12">
-        <div className="container-crx grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6">
+        <div className="container-crx grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6">
           {(project.type === 'bestand' ? [
             { key: 'Nutzung',          val: project.nutzung },
             project.units_residential && { key: 'Wohneinheiten', val: project.units_residential },
@@ -116,9 +116,9 @@ export default function ProjektDetail() {
             !project.hide_location && { key: 'Standort', val: project.address },
             !project.fertigstellung && { key: 'Status',     val: project.status, accent: true },
           ]).filter(Boolean).map((f, i) => (
-            <div key={i} className={`px-4 lg:px-8 ${i > 0 ? 'lg:border-l border-white/10' : ''}`}>
+            <div key={i} className={`px-4 lg:px-8 min-w-0 ${i > 0 ? 'lg:border-l border-white/10' : ''}`}>
               <div className="text-[10px] uppercase tracking-widest text-white/40 mb-2">{f.key}</div>
-              <div className={`font-display text-base lg:text-lg ${f.accent ? 'text-taupe-100' : ''}`}>{f.val}</div>
+              <div className={`font-display text-base lg:text-lg break-words ${f.accent ? 'text-taupe-100' : ''}`}>{f.val}</div>
             </div>
           ))}
         </div>

@@ -38,9 +38,9 @@ export default function AnkaufBlock() {
               </p>
               <dl className="space-y-3">
                 {p.criteria.map(c => (
-                  <div key={c.key} className="grid grid-cols-[140px_1fr] gap-4 py-2 border-t border-white/[0.06] first:border-t-0">
-                    <dt className="text-xs uppercase tracking-widest text-white/40 pt-0.5">{c.key}</dt>
-                    <dd className="text-[15px] text-white/90">{c.val}</dd>
+                  <div key={c.key} className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-x-4 gap-y-1 py-2 border-t border-white/[0.06] first:border-t-0">
+                    <dt className="text-xs uppercase tracking-widest text-white/40 sm:pt-0.5">{c.key}</dt>
+                    <dd className="text-[15px] text-white/90 break-words">{c.val}</dd>
                   </div>
                 ))}
               </dl>

@@ -56,9 +56,9 @@ export default function Ankaufsprofil() {
                 </p>
                 <dl className="space-y-0">
                   {p.criteria.map(c => (
-                    <div key={c.key} className="grid grid-cols-[140px_1fr] gap-4 py-4 border-t border-stone-400/20">
-                      <dt className="text-[11px] uppercase tracking-widest text-stone-400 pt-1">{c.key}</dt>
-                      <dd className="text-[15px] text-stone-800">{c.val}</dd>
+                    <div key={c.key} className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-x-4 gap-y-1 py-4 border-t border-stone-400/20">
+                      <dt className="text-[11px] uppercase tracking-widest text-stone-400 sm:pt-1">{c.key}</dt>
+                      <dd className="text-[15px] text-stone-800 break-words">{c.val}</dd>
                     </div>
                   ))}
                 </dl>

@@ -130,14 +130,9 @@ export default function Home() {
           <div className="relative min-h-[7rem] sm:min-h-[9rem] lg:min-h-[12rem]">
             <h1
               key={`title-${variantIdx}`}
-              className="font-display motion-safe:animate-fade-up"
-              style={{
-                fontSize: 'clamp(3.5rem, 7vw, 7rem)',
-                fontWeight: 600,
-                lineHeight: 0.95,
-                letterSpacing: '-0.03em',
-                animationDuration: '0.6s',
-              }}
+              lang="de"
+              className="hero-h1 font-display motion-safe:animate-fade-up"
+              style={{ animationDuration: '0.6s' }}
             >
               {variant.line1}<br />
               <em className="not-italic text-taupe-100" style={{ fontWeight: 300 }}>
@@ -180,10 +175,14 @@ export default function Home() {
                 aria-selected={i === variantIdx}
                 aria-label={`Variante ${i + 1}`}
                 onClick={() => setVariantIdx(i)}
-                className={`h-px transition-all duration-500 ${
-                  i === variantIdx ? 'w-8 bg-taupe-100' : 'w-5 bg-white/30 hover:bg-white/60'
-                }`}
-              />
+                className="group/dot flex items-center h-11 px-2 -mx-2 -my-3"
+              >
+                <span
+                  className={`block h-px transition-all duration-500 ${
+                    i === variantIdx ? 'w-8 bg-taupe-100' : 'w-5 bg-white/30 group-hover/dot:bg-white/60'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

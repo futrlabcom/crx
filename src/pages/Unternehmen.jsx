@@ -74,7 +74,7 @@ export default function Unternehmen() {
               className="p-10 md:p-14 lg:p-16 border-r border-b border-stone-400/20 hover:bg-taupe-100/10 transition-colors"
             >
               <div className="font-display text-sm text-taupe-500 mb-8">{s.num}</div>
-              <h3 className="font-display font-normal text-3xl lg:text-[32px] text-stone-800 mb-5 tracking-tight">{s.title}</h3>
+              <h3 lang="de" className="font-display font-normal text-3xl lg:text-[32px] text-stone-800 mb-5 tracking-tight break-words hyphens-auto">{s.title}</h3>
               <p className="text-base lg:text-lg leading-relaxed text-stone-600 max-w-md">{s.body}</p>
             </div>
           ))}

@@ -55,7 +55,7 @@ export default function Nav() {
           </div>
 
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-white inline-flex items-center justify-center min-w-[44px] min-h-[44px] -mr-2.5"
             onClick={() => setOpen(!open)}
             aria-label="Menü"
           >

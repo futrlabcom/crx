@@ -213,8 +213,11 @@ export const projects = [
     category: 'Wohnen',
     bgf: '10.500 m²',
     nutzung: 'Wohnen oder Hotel',
-    heroGradient: 'linear-gradient(135deg, #C9BBA0 0%, #5C4F3A 100%)',
-    cardImage: '/projects/hms28/cover.webp',
+    heroGradient: 'linear-gradient(135deg, #2E2A24 0%, #0A0907 100%)',
+    // TODO(Enzo): HMS28-Projektbild liefern → unter public/projects/hms28/cover.webp
+    // ablegen und cardImage hierauf setzen. Bis dahin null → gebrandeter
+    // Platzhalter (kein 404, keine beige Leerfläche).
+    cardImage: null,
     gallery: [],
     description: [
       'Das Projekt HMS28 entsteht in der Hedemannstraße 28–29 in Berlin-Kreuzberg, einem der zentralsten Standorte der Hauptstadt. Auf 10.500 m² Bruttogrundfläche ermöglicht das Projekt eine flexible Nutzung – je nach Marktentwicklung als Wohngebäude oder Hotel.',

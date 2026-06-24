@@ -180,9 +180,9 @@ export default function Investments() {
                 href="https://originalpowercoffee.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-7 py-4 border border-stone-800/30 hover:bg-stone-800 hover:text-white text-stone-800 text-xs uppercase tracking-widest transition-colors"
+                className="inline-flex max-w-full items-center gap-3 px-5 sm:px-7 py-4 border border-stone-800/30 hover:bg-stone-800 hover:text-white text-stone-800 text-xs uppercase tracking-widest transition-colors"
               >
-                originalpowercoffee.com <span>→</span>
+                <span className="min-w-0 break-all">originalpowercoffee.com</span> <span>→</span>
               </a>
             </div>
             <div className="lg:border-l lg:border-stone-400/25 lg:pl-12 pt-3">
@@ -195,9 +195,9 @@ export default function Investments() {
                   { k: 'Profil',  v: 'Clean energy · vegan · sugar-free' },
                   { k: 'Rolle CRX', v: 'Kapital · Strategie · Netzwerk' },
                 ].map(item => (
-                  <div key={item.k} className="grid grid-cols-[110px_1fr] gap-3 py-3 border-t border-stone-400/25">
-                    <dt className="text-[10px] uppercase tracking-widest text-stone-400 pt-1">{item.k}</dt>
-                    <dd className="text-sm text-stone-800">{item.v}</dd>
+                  <div key={item.k} className="grid grid-cols-1 sm:grid-cols-[110px_1fr] gap-x-3 gap-y-1 py-3 border-t border-stone-400/25">
+                    <dt className="text-[10px] uppercase tracking-widest text-stone-400 sm:pt-1">{item.k}</dt>
+                    <dd className="text-sm text-stone-800 break-words">{item.v}</dd>
                   </div>
                 ))}
               </dl>

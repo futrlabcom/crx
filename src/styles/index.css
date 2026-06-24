@@ -33,6 +33,14 @@
   html {
     scroll-behavior: smooth;
   }
+  /* Dekorative, absolut positionierte Radial-Glows (w-[800px], pointer-events-none)
+     ragen durch translate(-50%) über den Viewport hinaus und erzeugen auf schmalen
+     Screens einen horizontalen Phantom-Scroll. overflow-x: clip am App-Root fängt
+     ausschließlich diese Deko-Überstände ab — kein echter Inhalt wird verdeckt,
+     und es entsteht kein Scroll-Container (fixed/sticky bleiben funktionsfähig). */
+  #root {
+    overflow-x: clip;
+  }
   body {
     @apply bg-bone text-stone-800 font-sans antialiased;
     font-feature-settings: "ss01", "cv11";
@@ -55,6 +63,23 @@
   }
   .display-h1 {
     @apply font-display font-light tracking-[-0.035em] leading-[0.95];
+  }
+  /* Home-Hero-Titel: Desktop unverändert (clamp 3.5rem/7vw/7rem, -0.03em).
+     Auf Mobile kleiner skaliert, kein negatives Letter-Spacing, lange
+     Wörter dürfen umbrechen statt aus dem Viewport zu laufen. */
+  .hero-h1 {
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+  }
+  @media (max-width: 640px) {
+    .hero-h1 {
+      font-size: clamp(2rem, 9vw, 3.25rem);
+      letter-spacing: 0;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
   }
   .display-h2 {
     @apply font-display font-light leading-[1.05] tracking-[-0.03em];
