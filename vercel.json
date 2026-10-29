@@ -1,17 +1,12 @@
 {
   "redirects": [
     { "source": "/(.*)", "has": [{ "type": "host", "value": "crxre.vercel.app" }], "destination": "https://crx-re.com/$1", "permanent": true },
-    { "source": "/projekte/frontier", "destination": "/projekte", "permanent": true },
     { "source": "/portfolio-item/sw122-berlin", "destination": "/projekte/sw122-berlin", "permanent": true },
     { "source": "/portfolio-item/adk129-berlin", "destination": "/projekte/adk129-berlin", "permanent": true },
-    { "source": "/portfolio-item/frontier", "destination": "/projekte", "permanent": true },
     { "source": "/portfolio-item/logistikzentrum-walsrode", "destination": "/projekte/logistikzentrum-walsrode", "permanent": true },
     { "source": "/portfolio-item/nk-living", "destination": "/projekte/nk-living", "permanent": true },
     { "source": "/portfolio-item/cloud-no7", "destination": "/projekte/cloud-no-7", "permanent": true },
-    { "source": "/portfolio-item/(.*)", "destination": "/projekte", "permanent": true }
-  ],
-  "headers": [
-    { "source": "/projects/frontier/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+    { "source": "/portfolio-item/((?![Ff]rontier).*)", "destination": "/projekte", "permanent": true }
   ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }

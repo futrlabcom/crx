@@ -81,7 +81,7 @@ export const projects = [
 ## Bilder hinzufügen
 
 1. **Projekt-Cover-Bilder** in `public/projects/{slug}/cover.jpg` ablegen
-2. In `src/data/projects.js` ist `cardImage` bereits korrekt verlinkt (`/projects/frontier/cover.jpg`)
+2. In `src/data/projects.js` ist `cardImage` bereits korrekt verlinkt (`/projects/{slug}/cover.jpg`)
 3. Card-Komponenten nutzen aktuell Gradient-Placeholder — diese können wir später durch `<img>` ersetzen, sobald Bilder vorhanden sind
 
 Aktuell rendern alle Projekt-Cards mit Taupe-Gradient-Placeholders. Sobald die echten Renderings da sind, einfach in `ProjectCard.jsx` und `Projekte.jsx` das `style={{ background: p.heroGradient }}` durch ein `<img src={p.cardImage} />` ersetzen.

@@ -131,11 +131,7 @@ export default function ProjektDetail() {
           <div>
             <div className="section-num">— Vision</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[56px]">
-              {project.title === 'Frontier' ? (
-                <>Eine neue Ära für<br /><em className="text-taupe-500">Neukölln.</em></>
-              ) : (
-                <>Das Projekt im <em className="text-taupe-500">Detail.</em></>
-              )}
+              Das Projekt im <em className="text-taupe-500">Detail.</em>
             </h2>
           </div>
           <div>
@@ -193,11 +189,7 @@ export default function ProjektDetail() {
           <div>
             <div className="section-num !text-taupe-100">— Standort</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-6">
-              {project.title === 'Frontier' ? (
-                <>Grenzallee 100.<br /><em className="text-taupe-100">Neuköllns neue Mitte.</em></>
-              ) : (
-                <>Standort.<br /><em className="text-taupe-100">{project.location}.</em></>
-              )}
+              Standort.<br /><em className="text-taupe-100">{project.location}.</em>
             </h2>
             <p className="text-lg leading-relaxed text-white/70 max-w-md mb-5">
               {project.locationCopy || `Hochwertige Lage in ${project.location} mit exzellenter Anbindung.`}

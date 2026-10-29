@@ -1,47 +1,7 @@
 // Zentrales Projektdatenmodell — Quelle: crx-re.com (Stand Mai 2026)
 // Bilder liegen in /public/projects/{slug}/
 
-// Alle Projekte inkl. deaktivierter. Auf der Seite wird nur `projects`
-// (ohne hidden) verwendet — Reaktivieren: hidden-Flag entfernen.
-const allProjects = [
-  {
-    slug: 'frontier',
-    // DEAKTIVIERT (29.10.2026): nicht sichtbar, nicht indexierbar
-    // (301 + noindex in vercel.json, aus sitemap.xml entfernt).
-    hidden: true,
-    title: 'Frontier',
-    type: 'neubau',
-    tagline: 'Eine 225 Meter lange Geste an die Grenzallee. Büro, das nicht abnutzt – sondern altert.',
-    status: 'In Planung',
-    year: null,
-    location: 'Berlin · Neukölln',
-    address: 'Grenzallee 100, 12057 Berlin',
-    category: 'Büro',
-    bgf: '47.000 m²',
-    facadeLength: '225 m',
-    nutzung: 'Büro & Gewerbe',
-    heroGradient: 'linear-gradient(135deg, #A89878 0%, #5C4F3A 60%, #2E2A24 100%)',
-    cardImage: '/projects/frontier/03.webp',
-    cardVideo: '/projects/frontier/thumb.mp4',
-    heroImage: '/projects/frontier/cover.webp',
-    heroVideo: '/projects/frontier/hero.mp4',
-    gallery: [
-      { src: '/projects/frontier/01.webp', caption: 'Hauptfassade · Grenzallee' },
-      { src: '/projects/frontier/02.webp', caption: 'Eingangssituation' },
-      { src: '/projects/frontier/03.webp', caption: 'Innenhof' },
-      { src: '/projects/frontier/04.webp', caption: 'Straßenansicht Detail' },
-      { src: '/projects/frontier/05.webp', caption: 'Volumenstudie' },
-      { src: '/projects/frontier/06-interior-office.webp', caption: 'Bürofläche · Open Space' },
-      { src: '/projects/frontier/07-interior-bar.webp', caption: 'Networking Bar' },
-    ],
-    description: [
-      'Frontier markiert den Beginn einer neuen Ära nachhaltiger Büroentwicklung in Berlin-Neukölln – einem der dynamischsten und sich am schnellsten entwickelnden Stadtteile der Hauptstadt.',
-      'Mit seiner über 225 Meter langen Fassade entlang der Grenzallee bietet Frontier eine außergewöhnliche Sichtbarkeit und setzt einen markanten städtebaulichen Akzent. Geplant mit dem Anspruch, moderne Arbeitswelten neu zu definieren, kombiniert das Projekt innovative Architektur mit nachhaltigen Bauprinzipien.',
-      'Die exzellente Anbindung an die Autobahn A100 sowie die unmittelbare Nähe zu S- und U-Bahn-Stationen garantieren eine optimale Erreichbarkeit. Mit rund 47.000 m² Gesamtfläche bietet Frontier ausreichend Raum für kreative und produktive Bürolösungen – inspirierende Arbeitsumgebungen mit vielfältigen Möglichkeiten zur Entspannung und zum Networking.',
-    ],
-    pullquote: 'Eine Fassade ist kein Schmuck – sie ist ein Versprechen an die Stadt, das vierzig Jahre gehalten werden muss.',
-    locationCopy: 'Direkte Anbindung an die A100. Drei U-Bahn- und S-Bahn-Stationen in Gehweite. Mitten in einem Stadtteil, der sich gerade neu erfindet – und das wirtschaftliche Gewicht entwickelt, das ihm lange fehlte.',
-  },
+export const projects = [
   {
     slug: 'cloud-no-7',
     title: 'Cloud No. 7',
@@ -338,8 +298,6 @@ const allProjects = [
     locationCopy: 'Zentrale Altstadt-Lage in Palma. Fußläufig zu Plaza Mayor (2 Min), La Lonja (5 Min), Mallorca Cathedral (9 Min), Parque del Mar (12 Min) und Playa de Palma (15 Min).',
   },
 ]
-
-export const projects = allProjects.filter(p => !p.hidden)
 
 export const projectStats = [
   { num: '750',     unit: 'Mio €', label: 'Projektvolumen' },

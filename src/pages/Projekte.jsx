@@ -65,17 +65,10 @@ function ProjectsGrid({ items, eyebrow, num, title, anchor }) {
   )
 }
 
-// Frontier wird ans Ende der Neubau-Liste sortiert (21.05.2026)
-function sortFrontierLast(list) {
-  const others = list.filter(p => p.slug !== 'frontier')
-  const frontier = list.filter(p => p.slug === 'frontier')
-  return [...others, ...frontier]
-}
-
 export default function Projekte() {
   const [filter, setFilter] = useState('Alle')
 
-  const neubau   = useMemo(() => sortFrontierLast(projects.filter(p => p.type === 'neubau')),  [])
+  const neubau   = useMemo(() => projects.filter(p => p.type === 'neubau'),  [])
   const bestand  = useMemo(() => projects.filter(p => p.type === 'bestand'), [])
 
   const handleFilter = (f) => {

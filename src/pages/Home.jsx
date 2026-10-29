@@ -74,13 +74,8 @@ function HeroMedia({ variant, onEnded }) {
 }
 
 export default function Home() {
-  // Top 6 Neubau-Projekte — gleiche Sortierung wie /projekte (Frontier ans Ende)
-  const showcase = (() => {
-    const all = projects.filter(p => p.type === 'neubau')
-    const others = all.filter(p => p.slug !== 'frontier')
-    const frontier = all.filter(p => p.slug === 'frontier')
-    return [...others, ...frontier].slice(0, 6)
-  })()
+  // Top 6 Neubau-Projekte — gleiche Reihenfolge wie /projekte
+  const showcase = projects.filter(p => p.type === 'neubau').slice(0, 6)
 
   // Hero-Slideshow — der Wechsel kommt primär von video.onEnded (Video läuft
   // einmal ganz durch). Der Timer pro Slide ist nur Sicherheitsnetz.
