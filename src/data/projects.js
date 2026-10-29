@@ -1,9 +1,14 @@
 // Zentrales Projektdatenmodell — Quelle: crx-re.com (Stand Mai 2026)
 // Bilder liegen in /public/projects/{slug}/
 
-export const projects = [
+// Alle Projekte inkl. deaktivierter. Auf der Seite wird nur `projects`
+// (ohne hidden) verwendet — Reaktivieren: hidden-Flag entfernen.
+const allProjects = [
   {
     slug: 'frontier',
+    // DEAKTIVIERT (29.10.2026): nicht sichtbar, nicht indexierbar
+    // (301 + noindex in vercel.json, aus sitemap.xml entfernt).
+    hidden: true,
     title: 'Frontier',
     type: 'neubau',
     tagline: 'Eine 225 Meter lange Geste an die Grenzallee. Büro, das nicht abnutzt – sondern altert.',
@@ -333,6 +338,8 @@ export const projects = [
     locationCopy: 'Zentrale Altstadt-Lage in Palma. Fußläufig zu Plaza Mayor (2 Min), La Lonja (5 Min), Mallorca Cathedral (9 Min), Parque del Mar (12 Min) und Playa de Palma (15 Min).',
   },
 ]
+
+export const projects = allProjects.filter(p => !p.hidden)
 
 export const projectStats = [
   { num: '750',     unit: 'Mio €', label: 'Projektvolumen' },
