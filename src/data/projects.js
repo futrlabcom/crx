@@ -301,8 +301,8 @@ export const projects = [
 
 export const projectStats = [
   { num: '750',     unit: 'Mio €', label: 'Projektvolumen' },
-  { num: '235.932', unit: 'm²',    label: 'Bruttogrundfläche' },
-  { num: '11',      unit: null,    label: 'Projekte' },
+  { num: '188.841', unit: 'm²',    label: 'Bruttogrundfläche' },
+  { num: '10',      unit: null,    label: 'Projekte' },
   { num: '4',       unit: null,    label: 'Städte' },
   { num: '12',      unit: 'Jahre', label: 'Erfahrung' },
 ]
@@ -422,8 +422,8 @@ export const ankaufProzess = [
 
 export const contact = {
   company: 'CRX Management GmbH',
-  street:  'Bleibtreustraße 34',
-  city:    '10707 Berlin',
+  street:  'Bleibtreustraße 38',
+  city:    '10623 Berlin',
   phone:   '+49 (0) 30 75 65 4022',
   phoneRaw: '+493075654022',
   email:   'info@crx-re.com',

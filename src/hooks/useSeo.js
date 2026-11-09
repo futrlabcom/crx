@@ -8,7 +8,7 @@ const BASE_TITLE = 'CRX Real Estate'
 // einen generischen Titel — der wird in ProjektDetail per setDocumentMeta
 // überschrieben falls feiner gewünscht.
 const ROUTES = {
-  '/':              { title: 'CRX Real Estate – Projektentwicklung & Bestand in Berlin', desc: 'CRX entwickelt und hält Immobilien in Berlin und ausgewählten deutschen Städten. 750 Mio € Projektvolumen · 11 Projekte · 4 Städte · 12 Jahre Erfahrung.' },
+  '/':              { title: 'CRX Real Estate – Projektentwicklung & Bestand in Berlin', desc: 'CRX entwickelt und hält Immobilien in Berlin und ausgewählten deutschen Städten. 750 Mio € Projektvolumen · 10 Projekte · 4 Städte · 12 Jahre Erfahrung.' },
   '/unternehmen':   { title: 'Unternehmen – CRX Real Estate', desc: 'CRX Real Estate – Berliner Projektentwickler und Bestandshalter. Über 750 Mio € Projektvolumen, geführt von Christoph Ruppmann.' },
   '/projekte':      { title: 'Projekte – CRX Real Estate', desc: 'Neubauprojekte und Bestandsobjekte von CRX Real Estate in Berlin und ausgewählten deutschen Städten.' },
   '/investments':   { title: 'Investments – CRX Real Estate', desc: 'Entwicklung, Bestand und Venture Capital – die drei Investment-Stränge von CRX Real Estate.' },

@@ -223,7 +223,7 @@ export default function Home() {
               Ausgewählte <em className="text-taupe-500">Projekte.</em>
             </h2>
             <p className="text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl">
-              Elf Vorhaben in vier Städten, über 235.000 m² Bruttogrundfläche – ein Auszug aus dem Portfolio, das wir entwickeln und halten.
+              Zehn Vorhaben in vier Städten, über 188.000 m² Bruttogrundfläche – ein Auszug aus dem Portfolio, das wir entwickeln und halten.
             </p>
           </div>
           <Link
