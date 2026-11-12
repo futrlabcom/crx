@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { projects } from '../data/projects'
 import logoWhite from '../assets/logo_white.png'
+import ProjectMap from '../components/ProjectMap'
 
 export default function ProjektDetail() {
   const { slug } = useParams()
@@ -185,7 +186,7 @@ export default function ProjektDetail() {
           className="absolute -top-72 -right-72 w-[800px] h-[800px] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(168,152,120,0.12) 0%, transparent 60%)' }}
         />
-        <div className="container-crx grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-24 items-center relative z-10">
+        <div className={`container-crx grid grid-cols-1 ${project.geo ? 'lg:grid-cols-[1fr_1.2fr]' : ''} gap-12 lg:gap-24 items-center relative z-10`}>
           <div>
             <div className="section-num !text-taupe-100">— Standort</div>
             <h2 className="display-h2 text-4xl md:text-5xl lg:text-[64px] mb-6">
@@ -200,25 +201,8 @@ export default function ProjektDetail() {
             </div>
           </div>
 
-          <div className="relative aspect-[4/3] bg-stone-800 border border-white/10 rounded-sm overflow-hidden">
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                backgroundImage:
-                  'linear-gradient(rgba(201,187,160,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,187,160,0.06) 1px, transparent 1px)',
-                backgroundSize: '30px 30px',
-              }}
-            />
-            <div className="absolute top-[45%] left-[55%]">
-              <div
-                className="w-4 h-4 bg-taupe-500 rounded-full"
-                style={{ boxShadow: '0 0 0 8px rgba(138,122,92,0.3), 0 0 0 16px rgba(138,122,92,0.15)' }}
-              />
-              <div className="absolute -top-8 left-6 font-display text-sm text-taupe-100">
-                {project.title}
-              </div>
-            </div>
-          </div>
+          {/* Karte nur bei Projekten mit geo-Eintrag (projects.js) — NK Living bewusst ohne */}
+          {project.geo && <ProjectMap project={project} />}
         </div>
       </section>
       )}

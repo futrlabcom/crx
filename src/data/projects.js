@@ -11,6 +11,8 @@ export const projects = [
     year: '2023',
     location: 'Berlin · Rummelsburger Bucht',
     address: 'Fischerstr. 8–11, 10317 Berlin',
+    // Karte: q = Suchadresse für die Pin-Position. Sitzt der Pin falsch, coords: [lng, lat] ergänzen (hat Vorrang).
+    geo: { q: 'Fischerstraße 8, 10317 Berlin', country: 'de' },
     category: 'Wohnen',
     bgf: '7.000 m²',
     units: '153 Apartments',
@@ -87,6 +89,8 @@ export const projects = [
     fertigstellung: '2028',
     location: 'Berlin · urbane Lage',
     address: 'Sewanstr. 122, 10319 Berlin',
+    // Karte: q = Suchadresse für die Pin-Position. Sitzt der Pin falsch, coords: [lng, lat] ergänzen (hat Vorrang).
+    geo: { q: 'Sewanstraße 122, 10319 Berlin', country: 'de' },
     category: 'Wohnen',
     bgf: '9.200 m²',
     units: '120 Wohnungen',
@@ -143,6 +147,8 @@ export const projects = [
     fertigstellung: '2028',
     location: 'Berlin · urbane Lage',
     address: 'Allee der Kosmonauten 129, 12681 Berlin',
+    // Karte: q = Suchadresse für die Pin-Position. Sitzt der Pin falsch, coords: [lng, lat] ergänzen (hat Vorrang).
+    geo: { q: 'Allee der Kosmonauten 129, 12681 Berlin', country: 'de' },
     category: 'Wohnen',
     bgf: '14.000 m²',
     units: '180 Wohnungen',
@@ -175,6 +181,8 @@ export const projects = [
     fertigstellung: 'Q2 2029',
     location: 'Berlin · Kreuzberg',
     address: 'Hedemannstraße 28–29, 10963 Berlin',
+    // Karte: q = Suchadresse für die Pin-Position. Sitzt der Pin falsch, coords: [lng, lat] ergänzen (hat Vorrang).
+    geo: { q: 'Hedemannstraße 28, 10963 Berlin', country: 'de' },
     category: 'Wohnen',
     bgf: '10.500 m²',
     nutzung: 'Wohnen oder Hotel',
@@ -230,6 +238,8 @@ export const projects = [
     year: null,
     location: 'Berlin · urbane Lage',
     address: 'Jan-Petersen-Straße 18, 12679 Berlin',
+    // Karte: q = Suchadresse für die Pin-Position. Sitzt der Pin falsch, coords: [lng, lat] ergänzen (hat Vorrang).
+    geo: { q: 'Jan-Petersen-Straße 18, 12679 Berlin', country: 'de' },
     category: 'Gewerbe',
     nutzung: 'Gewerbe · Nahversorgung',
     units_residential: null,
@@ -253,6 +263,8 @@ export const projects = [
     year: null,
     location: 'Berlin · Kreuzberg',
     address: 'Wilhelmstraße 123–124 / Hedemannstraße 27, 10963 Berlin',
+    // Karte: q = Suchadresse für die Pin-Position. Sitzt der Pin falsch, coords: [lng, lat] ergänzen (hat Vorrang).
+    geo: { q: 'Wilhelmstraße 123, 10963 Berlin', country: 'de' },
     category: 'Wohnen',
     nutzung: 'Wohnen und Gewerbe',
     units_residential: 110,
@@ -276,6 +288,8 @@ export const projects = [
     fertigstellung: '2027',
     location: 'Palma de Mallorca · Spanien',
     address: 'Plaza Weyler, Palma de Mallorca',
+    // Karte: q = Suchadresse für die Pin-Position. Sitzt der Pin falsch, coords: [lng, lat] ergänzen (hat Vorrang).
+    geo: { q: 'Plaça de Weyler, Palma', country: 'es', zoom: 15 },
     category: 'Wohnen',
     bgf: 'ca. 257 m² Wohnfläche',
     nutzung: 'Wohnen',
