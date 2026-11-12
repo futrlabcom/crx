@@ -300,7 +300,7 @@ export const projects = [
 ]
 
 export const projectStats = [
-  { num: '750',     unit: 'Mio €', label: 'Projektvolumen' },
+  { num: '770',     unit: null,    label: 'Wohneinheiten' },
   { num: '188.841', unit: 'm²',    label: 'Bruttogrundfläche' },
   { num: '10',      unit: null,    label: 'Projekte' },
   { num: '4',       unit: null,    label: 'Städte' },
